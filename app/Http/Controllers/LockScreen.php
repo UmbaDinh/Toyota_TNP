@@ -14,12 +14,12 @@ class LockScreen extends Controller
     {
         if(!session('lock-expires-at'))
         {
-            return redirect('home');
+            return redirect('dashboard.main_dashboard');
         }
 
         if(session('lock-expires-at') > now())
         {
-            return redirect('home');
+            return redirect('dashboard.main_dashboard');
         }
         return view('lockscreen.lockscreen');
     }
@@ -38,6 +38,6 @@ class LockScreen extends Controller
             return redirect()->route('lock_screen');
         }
         session(['lock-expires-at' => now()->addMinutes($request->user()->getLockoutTime())]);
-        return redirect('home');
+        return redirect('dashboard.main_dashboard');
     }
 }

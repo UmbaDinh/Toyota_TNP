@@ -11,7 +11,7 @@ class Form extends Model
 
    protected $fillable = [
 
-    'rec_id',
+    'user_id',
     'name',
     'email',
     'sex',

@@ -14,11 +14,11 @@ class CreateGenerateIdTblsTable extends Migration
     public function up()
     {
         DB::unprepared('
-                CREATE TRIGGER id_store BEFORE INSERT ON staff FOR EACH ROW
-                    BEGIN
-                        INSERT INTO sequence_tbls VALUES (NULL);
-                        SET NEW.rec_id = CONCAT("KHM_", LPAD(LAST_INSERT_ID(), 10, "0"));
-                    END
+            CREATE TRIGGER id_store BEFORE INSERT ON users FOR EACH ROW
+            BEGIN
+                INSERT INTO sequence_tbls VALUES (NULL);
+                SET NEW.user_id = CONCAT("KH_", LPAD(LAST_INSERT_ID(), 5, "0"));
+            END
         ');
     }
 

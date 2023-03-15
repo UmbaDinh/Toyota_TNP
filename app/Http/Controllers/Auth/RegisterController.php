@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Hash;
+use DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Password;
 
@@ -14,7 +16,8 @@ class RegisterController extends Controller
 {
     public function register()
     {
-        return view('auth.register');
+        $role = DB::table('role_type_users')->get();
+        return view('auth.register',compact('role'));
     }
     public function storeUser(Request $request)
     {
@@ -26,25 +29,16 @@ class RegisterController extends Controller
             'password_confirmation' => 'required',
         ]);
 
-        // $request->validate([
-        //     'name' => 'required|string|max:255',
-        //     'role_name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255|unique:users',
-        //     'password' => ['required', 'confirmed', Password::min(8)
-        //             ->mixedCase()
-        //             ->letters()
-        //             ->numbers()
-        //             ->symbols()
-        //             ->uncompromised(),
-        //     'password_confirmation' => 'required',
-        //     ],
-        // ]);
+        $dt       = Carbon::now();
+        $todayDate = $dt->toDayDateTimeString();
         
         User::create([
             'name'      => $request->name,
             'avatar'    => $request->image,
             'email'     => $request->email,
+            'join_date' => $todayDate,
             'role_name' => $request->role_name,
+            'status'    => 'Active',
             'password'  => Hash::make($request->password),
         ]);
         Toastr::success('Create new account successfully :)','Success');

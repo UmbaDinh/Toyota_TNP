@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use DB;
 use Carbon\Carbon;
 use Mail;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ForgotPasswordController extends Controller
 {
@@ -30,10 +31,10 @@ class ForgotPasswordController extends Controller
 
         Mail::send('auth.verify',['token' => $token], function($message) use ($request) {
                   $message->from($request->email);
-                  $message->to('example@gmail.com');
+                  $message->to('your email');
                   $message->subject('Reset Password Notification');
                });
-
-        return back()->with('message', 'We have e-mailed your password reset link!');
+        Toastr::success('We have e-mailed your password reset link! :)','Success');
+        return back();
     }
 }
