@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
                     <div class="card dash-widget">
-                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-clock"></i></span>
+                        <div class="card-body"> <span class="dash-widget-icon"><i class="fa fa-clock-o"></i></span>
                             <div class="dash-widget-info">
                                 <h3>16/03/2023</h3> <span>Thời gian</span>
                             </div>
@@ -135,7 +135,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div> <span class="d-block">Khối văn phòng</span> </div>
-                                    <div> <span class="text-danger">Nhân viên tiêu biểu</span> </div>
+                                    <div> <span class="text-success">Nhân viên tiêu biểu</span> </div>
                                 </div>
                                 <h3 class="mb-3">Nguyễn Mai Thi</h3>
                                 <div class="progress mb-2" style="height: 5px;">
@@ -148,7 +148,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div> <span class="d-block">Nhân viên CSKH</span> </div>
-                                    <div> <span class="text-danger">Nhân viên tiêu biểu</span> </div>
+                                    <div> <span class="text-success">Nhân viên tiêu biểu</span> </div>
                                 </div>
                                 <h3 class="mb-3">Nguyễn Thị Kiều Oanh</h3>
                                 <div class="progress mb-2" style="height: 5px;">
@@ -193,7 +193,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div> <span class="d-block">Quản lý dịch vụ</span> </div>
-                                    <div> <span class="text-danger">Nhân viên tiêu biểu</span> </div>
+                                    <div> <span class="text-success">Nhân viên tiêu biểu</span> </div>
                                 </div>
                                 <h3 class="mb-3">Phạm Mạnh Khương</h3>
                                 <div class="progress mb-2" style="height: 5px;">
@@ -206,7 +206,7 @@
                             <div class="card-body">
                                 <div class="d-flex justify-content-between mb-3">
                                     <div> <span class="d-block">NV Marketing</span> </div>
-                                    <div> <span class="text-danger">Nhân viên tiêu biểu</span> </div>
+                                    <div> <span class="text-success">Nhân viên tiêu biểu</span> </div>
                                 </div>
                                 <h3 class="mb-3">Nguyễn Nhựt Huy</h3>
                                 <div class="progress mb-2" style="height: 5px;">

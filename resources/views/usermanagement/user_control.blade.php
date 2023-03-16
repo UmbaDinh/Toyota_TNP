@@ -8,14 +8,14 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Quản lý người dùng</h3>
+                        <h3 class="page-title">Quản lý nhân viên</h3>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{ route('home') }}">Trang chủ</a></li>
-                            <li class="breadcrumb-item active">Quản lý người dùng</li>
+                            <li class="breadcrumb-item active">Quản lý nhân viên</li>
                         </ul>
                     </div>
                     <div class="col-auto float-right ml-auto">
-                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_user"><i class="fa fa-plus"></i> Add User</a>
+                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_user"><i class="fa fa-plus"></i> Thêm Nhân Viên</a>
                     </div>
                 </div>
             </div>
@@ -28,23 +28,23 @@
                     <div class="col-sm-6 col-md-3">  
                         <div class="form-group form-focus">
                             <input type="text" class="form-control floating" id="name" name="name">
-                            <label class="focus-label">User Name</label>
+                            <label class="focus-label">Họ tên</label>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">  
                         <div class="form-group form-focus">
                             <input type="text" class="form-control floating" id="name" name="role_name">
-                            <label class="focus-label">Role Name</label>
+                            <label class="focus-label">Quyền hạn</label>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3"> 
                         <div class="form-group form-focus">
                             <input type="text" class="form-control floating" id="name" name="status">
-                            <label class="focus-label">Status</label>
+                            <label class="focus-label">Trạng thái</label>
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-3">  
-                        <button type="sumit" class="btn btn-success btn-block"> Search </button>  
+                        <button type="sumit" class="btn btn-success btn-block"> Tìm kiếm </button>  
                     </div>
                 </div>
             </form>     
@@ -57,17 +57,16 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>User ID</th>
+                                    <th>Họ tên</th>
+                                    <th>ID NV</th>
                                     <th hidden></th>
                                     <th>Email</th>
-                                    <th>Position</th>
-                                    <th>Phone</th>
-                                    <th>Join Date</th>
-                                    <th>Role</th>
-                                    <th>Status</th>
-                                    <th>Departement</th>
-                                    <th class="text-right">Action</th>
+                                    <th>Chức vụ</th>
+                                    <th>SĐT</th>
+                                    <th>Ngày làm việc</th>
+                                    <th>Quyền hạn</th>
+                                    <th>Trạng thái</th>
+                                    <th class="text-right">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,7 +135,6 @@
                                             </div>
                                         </div>
                                     </td>
-                                    <td class="department">{{ $user->department }}</td>
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
@@ -162,7 +160,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add New User</h5>
+                        <h5 class="modal-title">Thêm mới nhân viên</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -173,29 +171,29 @@
                             <div class="row"> 
                                 <div class="col-sm-6"> 
                                     <div class="form-group">
-                                        <label>Full Name</label>
-                                        <input class="form-control @error('name') is-invalid @enderror" type="text" id="" name="name" value="{{ old('name') }}" placeholder="Enter Name">
+                                        <label>Họ và Tên</label>
+                                        <input class="form-control @error('name') is-invalid @enderror" type="text" id="" name="name" value="{{ old('name') }}" placeholder="Nhập họ và tên">
                                     </div>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Emaill Address</label>
-                                    <input class="form-control" type="email" id="" name="email" placeholder="Enter Email">
+                                    <label>Emaill</label>
+                                    <input class="form-control" type="email" id="" name="email" placeholder="Nhập Email">
                                 </div>
                             </div>
                             <div class="row"> 
                                 <div class="col-sm-6"> 
-                                    <label>Role Name</label>
+                                    <label>Quyền hạn</label>
                                     <select class="select" name="role_name" id="role_name">
-                                        <option selected disabled> --Select --</option>
+                                        <option selected disabled> -- Chọn --</option>
                                         @foreach ($role_name as $role )
                                         <option value="{{ $role->role_type }}">{{ $role->role_type }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Position</label>
+                                    <label>Đơn vị</label>
                                     <select class="select" name="position" id="position">
-                                        <option selected disabled> --Select --</option>
+                                        <option selected disabled> -- Chọn --</option>
                                         @foreach ($position as $positions )
                                         <option value="{{ $positions->position }}">{{ $positions->position }}</option>
                                         @endforeach
@@ -206,14 +204,14 @@
                             <div class="row"> 
                                 <div class="col-sm-6"> 
                                     <div class="form-group">
-                                        <label>Phone</label>
-                                        <input class="form-control" type="tel" id="" name="phone" placeholder="Enter Phone">
+                                        <label>Số điện thoại</label>
+                                        <input class="form-control" type="tel" id="" name="phone" placeholder="Nhập SĐT">
                                     </div>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Department</label>
+                                    <label>Đơn vị</label>
                                     <select class="select" name="department" id="department">
-                                        <option selected disabled> --Select --</option>
+                                        <option selected disabled> -- Chọn --</option>
                                         @foreach ($department as $departments )
                                         <option value="{{ $departments->department }}">{{ $departments->department }}</option>
                                         @endforeach
@@ -222,16 +220,16 @@
                             </div>
                             <div class="row"> 
                                 <div class="col-sm-6"> 
-                                    <label>Status</label>
+                                    <label>Trạng thái</label>
                                     <select class="select" name="status" id="status">
-                                        <option selected disabled> --Select --</option>
+                                        <option selected disabled> -- Chọn --</option>
                                         @foreach ($status_user as $status )
                                         <option value="{{ $status->type_name }}">{{ $status->type_name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Photo</label>
+                                    <label>Hình ảnh</label>
                                     <input class="form-control" type="file" id="image" name="image">
                                 </div>
                             </div>
@@ -239,17 +237,17 @@
                             <div class="row"> 
                                 <div class="col-sm-6"> 
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="Enter Password">
+                                        <label>Mật khẩu</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu">
                                     </div>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Repeat Password</label>
-                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Choose Repeat Password">
+                                    <label>Nhập lại mật khẩu</label>
+                                    <input type="password" class="form-control" name="password_confirmation" placeholder="Nhập lại mật khẩu">
                                 </div>
                             </div>
                             <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                                <button type="submit" class="btn btn-primary submit-btn">Lưu</button>
                             </div>
                         </form>
                     </div>
@@ -263,7 +261,7 @@
             <div class="modal-dialog modal-dialog-centered modal-md" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit User</h5>
+                        <h5 class="modal-title">Chỉnh sửa thông tin</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -276,7 +274,7 @@
                             <div class="row"> 
                                 <div class="col-sm-6"> 
                                     <div class="form-group">
-                                        <label>Name</label>
+                                        <label>Họ tên</label>
                                         <input class="form-control" type="text" name="name" id="e_name" value="" />
                                     </div>
                                 </div>
@@ -287,7 +285,7 @@
                             </div>
                             <div class="row"> 
                                 <div class="col-sm-6"> 
-                                    <label>Role Name</label>
+                                    <label>Quyền hạn</label>
                                     <select class="select" name="role_name" id="e_role_name">
                                         @foreach ($role_name as $role )
                                         <option value="{{ $role->role_type }}">{{ $role->role_type }}</option>
@@ -295,7 +293,7 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Position</label>
+                                    <label>Đơn vị</label>
                                     <select class="select" name="position" id="e_position">
                                         @foreach ($position as $positions )
                                         <option value="{{ $positions->position }}">{{ $positions->position }}</option>
@@ -307,12 +305,12 @@
                             <div class="row"> 
                                 <div class="col-sm-6"> 
                                     <div class="form-group">
-                                        <label>Phone</label>
+                                        <label>SĐT</label>
                                         <input class="form-control" type="text" id="e_phone_number" name="phone" placeholder="Enter Phone">
                                     </div>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Department</label>
+                                    <label>Đơn vị</label>
                                     <select class="select" name="department" id="e_department">
                                         @foreach ($department as $departments )
                                         <option value="{{ $departments->department }}">{{ $departments->department }}</option>
@@ -322,7 +320,7 @@
                             </div>
                             <div class="row"> 
                                 <div class="col-sm-6"> 
-                                    <label>Status</label>
+                                    <label>Trạng thái</label>
                                     <select class="select" name="status" id="e_status">
                                         @foreach ($status_user as $status )
                                         <option value="{{ $status->type_name }}">{{ $status->type_name }}</option>
@@ -330,14 +328,14 @@
                                     </select>
                                 </div>
                                 <div class="col-sm-6"> 
-                                    <label>Photo</label>
+                                    <label>Hình ảnh</label>
                                     <input class="form-control" type="file" id="image" name="images">
                                     <input type="hidden" name="hidden_image" id="e_image" value="">
                                 </div>
                             </div>
                             <br>
                             <div class="submit-section">
-                                <button type="submit" class="btn btn-primary submit-btn">Update</button>
+                                <button type="submit" class="btn btn-primary submit-btn">Sửa đổi</button>
                             </div>
                         </form>
                     </div>
@@ -352,8 +350,8 @@
                 <div class="modal-content">
                     <div class="modal-body">
                         <div class="form-header">
-                            <h3>Delete User</h3>
-                            <p>Are you sure want to delete?</p>
+                            <h3>Xóa nhân viên này ?</h3>
+                            <p>Dữ liệu sẽ không khôi phục được khi xóa?</p>
                         </div>
                         <div class="modal-btn delete-action">
                             <form action="{{ route('user/delete') }}" method="POST">
@@ -362,10 +360,10 @@
                                 <input type="hidden" name="avatar" class="e_avatar" value="">
                                 <div class="row">
                                     <div class="col-6">
-                                        <button type="submit" class="btn btn-primary continue-btn submit-btn">Delete</button>
+                                        <button type="submit" class="btn btn-primary continue-btn submit-btn">Xóa</button>
                                     </div>
                                     <div class="col-6">
-                                        <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Cancel</a>
+                                        <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Hủy</a>
                                     </div>
                                 </div>
                             </form>

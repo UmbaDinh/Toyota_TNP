@@ -33,7 +33,7 @@
                                             <p>Bạn xin nghỉ vào thứ 2 - 13/03/2023</p>
                                         </div>
                                         <div class="dash-card-avatars">
-                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/profiles/avatar-09.jpg') }}" alt=""></div>
+                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/toyota-thap-nhat-phong-vinh-long.jpg') }}" alt=""></div>
                                         </div>
                                     </div>
                                 </a>
@@ -49,7 +49,7 @@
                                             <p>Bạn bị trừ điểm đi trể - 16/03/2023</p>
                                         </div>
                                         <div class="dash-card-avatars">
-                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/profiles/avatar-02.jpg') }}" alt=""></div>
+                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/toyota-thap-nhat-phong-vinh-long.jpg') }}" alt=""></div>
                                         </div>
                                     </div>
                                 </a>
@@ -65,7 +65,7 @@
                                             <p>Hôm nay bạn làm việc ở nhà</p>
                                         </div>
                                         <div class="dash-card-avatars">
-                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/profiles/avatar-02.jpg') }}" alt=""></div>
+                                            <div class="e-avatar"><img src="{{ URL::to('assets/img/toyota-thap-nhat-phong-vinh-long.jpg') }}" alt=""></div>
                                         </div>
                                     </div>
                                 </a>

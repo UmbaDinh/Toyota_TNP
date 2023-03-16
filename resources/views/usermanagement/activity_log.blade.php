@@ -25,11 +25,11 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
+                                    <th>STT</th>
+                                    <th>Tên</th>
                                     <th>Email</th>
-                                    <th>Description</th>
-                                    <th>Date Time</th>
+                                    <th>Mô tả</th>
+                                    <th>Thời gian</th>
                                 </tr>
                             </thead>
                             <tbody>

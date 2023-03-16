@@ -4,9 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-	<meta name="description" content="SoengSouy Admin Template">
-	<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-	<meta name="author" content="SoengSouy Admin Template">
+	<meta name="description" content="Toyota - Thập Nhất Phong">
+	<meta name="keywords" content="Thập Nhất Phong, Toyota - Thập Nhất Phong, TNP, toyota, KPI,estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+	<meta name="author" content="Toyota - Thập Nhất Phong">
+	<meta property="og:title" content="Trang chủ - TOYOTA THẬP NHẤT PHONG">
+	<meta property="og:site_name" content="TOYOTA THẬP NHẤT PHONG">
+	
 	<meta name="robots" content="noindex, nofollow">
 	<title>Toyota - Thập Nhất Phong</title>
 	<!-- Favicon -->
@@ -24,7 +27,7 @@
 	<!-- Datetimepicker CSS -->
 	<link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap-datetimepicker.min.css') }}">
 	<!-- Chart CSS -->
-	<link rel="stylesheet" href="{{ URL::to('ssets/plugins/morris/morris.css') }}">
+	<link rel="stylesheet" href="{{ URL::to('assets/plugins/morris/morris.css') }}">
 	<!-- Main CSS -->
 	<link rel="stylesheet" href="{{ URL::to('assets/css/style.css') }}">
 

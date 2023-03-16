@@ -25,13 +25,13 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Full Name</th>
-                                    <th>Email Address</th>
-                                    <th>Phone Number</th>
-                                    <th>Status</th>
-                                    <th>Role Name</th>
-                                    <th>Modify</th>
+                                    <th>STT</th>
+                                    <th>Họ tên</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
+                                    <th>Trạng thái</th>
+                                    <th>Quyền hạn</th>
+                                    <th>Mô tả</th>
                                     <th>Date Time</th>
                                 </tr>
                             </thead>

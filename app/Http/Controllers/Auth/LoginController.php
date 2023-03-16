@@ -81,7 +81,7 @@ class LoginController extends Controller
             Session::put('position', $user->position);
             Session::put('department', $user->department);
             
-            $activityLog = ['name'=> Session::get('name'),'email'=> $username,'description' => 'Has log in','date_time'=> $todayDate,];
+            $activityLog = ['name'=> Session::get('name'),'email'=> $username,'description' => 'Đã đăng nhập','date_time'=> $todayDate,];
             DB::table('activity_logs')->insert($activityLog);
             
             Toastr::success('Login successfully :)','Success');
@@ -97,7 +97,7 @@ class LoginController extends Controller
         $dt         = Carbon::now();
         $todayDate  = $dt->toDayDateTimeString();
 
-        $activityLog = ['name'=> Session::get('name'),'email'=> Session::get('email'),'description' => 'Has log out','date_time'=> $todayDate,];
+        $activityLog = ['name'=> Session::get('name'),'email'=> Session::get('email'),'description' => 'Đã đăng xuất','date_time'=> $todayDate,];
         DB::table('activity_logs')->insert($activityLog);
         // forget login session
         $request->session()->forget('name');

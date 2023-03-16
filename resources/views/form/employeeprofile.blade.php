@@ -7,10 +7,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Profile</h3>
+                        <h3 class="page-title">Hồ sơ cá nhân</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Hồ sơ</li>
                         </ul>
                     </div>
                 </div>
@@ -35,15 +35,15 @@
                                                 <h3 class="user-name m-t-0 mb-0">{{ $user[0]->name }}</h3>
                                                 <h6 class="text-muted"> {{ $user[0]->department }}</h6>
                                                 <small class="text-muted">{{ $user[0]->position }}</small>
-                                                <div class="staff-id">Employee ID : {{ $user[0]->user_id }}</div>
-                                                <div class="small doj text-muted">Date of Join : {{ $user[0]->join_date }}</div>
+                                                <div class="staff-id">Mã nhân viên : {{ $user[0]->user_id }}</div>
+                                                <div class="small doj text-muted">Ngày làm việc : {{ $user[0]->join_date }}</div>
                                                 <div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
                                             <ul class="personal-info">
                                                 <li>
-                                                    <div class="title">Phone:</div>
+                                                    <div class="title">Số điện thoại:</div>
                                                     <div class="text"><a href="">{{ $user[0]->phone_number }}</a></div>
                                                 </li>
                                                 <li>
@@ -52,32 +52,32 @@
                                                 </li>
                                                 <li>
                                                     @if(!empty($users))
-                                                        <div class="title">Birthday:</div>
+                                                        <div class="title">Ngày sinh:</div>
                                                         <div class="text">{{ $users->birth_date }}</div>
                                                     @else
-                                                        <div class="title">Birthday:</div>
+                                                        <div class="title">Ngày sinh:</div>
                                                         <div class="text">N/A</div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     @if(!empty($users))
-                                                        <div class="title">Address:</div>
+                                                        <div class="title">Địa chỉ:</div>
                                                         <div class="text">{{ $users->address }}</div>
                                                     @else
-                                                        <div class="title">Address:</div>
+                                                        <div class="title">Địa chỉ:</div>
                                                         <div class="text">N/A</div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     @if(!empty($users))
-                                                        <div class="title">Gender:</div>
+                                                        <div class="title">Giới tính:</div>
                                                         <div class="text">{{ $users->gender }}</div>
                                                     @else
-                                                        <div class="title">Gender:</div>
+                                                        <div class="title">Giới tính:</div>
                                                         <div class="text">N/A</div>
                                                     @endif
                                                 </li>
-                                                <li>
+                                                {{-- <li>
                                                     <div class="title">Reports to:</div>
                                                     <div class="text">
                                                         <div class="avatar-box">
@@ -89,7 +89,7 @@
                                                             {{ $user[0]->name }}
                                                         </a>
                                                     </div>
-                                                </li> 
+                                                </li>  --}}
                                             </ul>
                                         </div>
                                     </div>
@@ -105,9 +105,8 @@
                 <div class="row user-tabs">
                     <div class="col-lg-12 col-md-12 col-sm-12 line-tabs">
                         <ul class="nav nav-tabs nav-tabs-bottom">
-                            <li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Profile</a></li>
-                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Projects</a></li>
-                            <li class="nav-item"><a href="#bank_statutory" data-toggle="tab" class="nav-link">Bank & Statutory <small class="text-danger">(Admin Only)</small></a></li>
+                            <li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Hồ sơ cá nhân</a></li>
+                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Dự án tham gia</a></li>
                         </ul>
                     </div>
                 </div>
@@ -120,224 +119,80 @@
                         <div class="col-md-6 d-flex">
                             <div class="card profile-box flex-fill">
                                 <div class="card-body">
-                                    <h3 class="card-title">Personal Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
+                                    <h3 class="card-title">Thông tin cá nhân <a href="#" class="edit-icon" data-toggle="modal" data-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
                                     <ul class="personal-info">
                                         <li>
-                                            <div class="title">Passport No.</div>
+                                            <div class="title">CMND - CCCD</div>
                                             <div class="text">{{ $users->passport_no }}</div>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <div class="title">Passport Exp Date.</div>
                                             <div class="text">{{ $users->passport_expiry_date }}</div>
-                                        </li>
+                                        </li> --}}
                                         <li>
-                                            <div class="title">Tel</div>
+                                            <div class="title">Số điện thoại</div>
                                             <div class="text"><a href="">{{ $users->tel }}</a></div>
                                         </li>
                                         <li>
-                                            <div class="title">Nationality</div>
+                                            <div class="title">Quốc gia</div>
                                             <div class="text">{{ $users->nationality }}</div>
                                         </li>
                                         <li>
-                                            <div class="title">Religion</div>
+                                            <div class="title">Tôn giáo</div>
                                             <div class="text">{{ $users->religion }}</div>
                                         </li>
                                         <li>
-                                            <div class="title">Marital status</div>
+                                            <div class="title">Tình trạng hôn nhân</div>
                                             <div class="text">{{ $users->marital_status }}</div>
                                         </li>
                                         <li>
-                                            <div class="title">Employment of spouse</div>
+                                            <div class="title">Công việc của Vợ/Chồng</div>
                                             <div class="text">{{ $users->employment_of_spouse }}</div>
                                         </li>
                                         <li>
-                                            <div class="title">No. of children</div>
+                                            <div class="title">Trẻ nhỏ</div>
                                             <div class="text">{{ $users->children }}</div>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col-md-6 d-flex">
                             <div class="card profile-box flex-fill">
                                 <div class="card-body">
-                                    <h3 class="card-title">Emergency Contact <a href="#" class="edit-icon" data-toggle="modal" data-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
-                                    <h5 class="section-title">Primary</h5>
+                                    <h3 class="card-title">Liên lạc khẩn cấp <a href="#" class="edit-icon" data-toggle="modal" data-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
+                                    <h5 class="section-title">Liên lạc chính</h5>
                                     <ul class="personal-info">
                                         <li>
-                                            <div class="title">Name</div>
-                                            <div class="text">John Doe</div>
+                                            <div class="title">Họ tên</div>
+                                            <div class="text">Nguyễn Văn A</div>
                                         </li>
                                         <li>
-                                            <div class="title">Relationship</div>
-                                            <div class="text">Father</div>
+                                            <div class="title">Mối quan hệ</div>
+                                            <div class="text">Bố</div>
                                         </li>
                                         <li>
-                                            <div class="title">Phone </div>
+                                            <div class="title">Điện thoại </div>
                                             <div class="text">9876543210, 9876543210</div>
                                         </li>
                                     </ul>
                                     <hr>
-                                    <h5 class="section-title">Secondary</h5>
+                                    <h5 class="section-title">Liên lạc phụ</h5>
                                     <ul class="personal-info">
                                         <li>
-                                            <div class="title">Name</div>
-                                            <div class="text">Karen Wills</div>
+                                            <div class="title">Họ tên</div>
+                                            <div class="text">Nguyễn Văn C</div>
                                         </li>
                                         <li>
-                                            <div class="title">Relationship</div>
-                                            <div class="text">Brother</div>
+                                            <div class="title">Mối quan hệ</div>
+                                            <div class="text">Anh trai</div>
                                         </li>
                                         <li>
-                                            <div class="title">Phone </div>
+                                            <div class="title">Số điện thoại </div>
                                             <div class="text">9876543210, 9876543210</div>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Bank information</h3>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Bank name</div>
-                                            <div class="text">ICICI Bank</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Bank account No.</div>
-                                            <div class="text">159843014641</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">IFSC Code</div>
-                                            <div class="text">ICI24504</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">PAN No</div>
-                                            <div class="text">TC000Y56</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Family Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#family_info_modal"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Relationship</th>
-                                                    <th>Date of Birth</th>
-                                                    <th>Phone</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Leo</td>
-                                                    <td>Brother</td>
-                                                    <td>Feb 16th, 2019</td>
-                                                    <td>9876543210</td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Education Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Arts and Science (UG)</a>
-                                                        <div>Bsc Computer Science</div>
-                                                        <span class="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Arts and Science (PG)</a>
-                                                        <div>Msc Computer Science</div>
-                                                        <span class="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Experience <a href="#" class="edit-icon" data-toggle="modal" data-target="#experience_info"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Zen Corporation</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Ron-tech</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Dalt Technology</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -358,25 +213,23 @@
                                             <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
-                                    <h4 class="project-title"><a href="project-view.html">Office Management</a></h4>
+                                    <h4 class="project-title"><a href="project-view.html">Mẫu dự án 1</a></h4>
                                     <small class="block text-ellipsis m-b-15">
-                                        <span class="text-xs">1</span> <span class="text-muted">open tasks, </span>
-                                        <span class="text-xs">9</span> <span class="text-muted">tasks completed</span>
+                                        <span class="text-xs">1</span> <span class="text-muted">Nhiệm vụ, </span>
+                                        <span class="text-xs">9</span> <span class="text-muted">đã hoàn thành</span>
                                     </small>
-                                    <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. When an unknown printer took a galley of type and
-                                        scrambled it...
+                                    <p class="text-muted">Dưới đây chỉ là mẫu cho một dự án của nhân viên mà thôi...
                                     </p>
                                     <div class="pro-deadline m-b-15">
                                         <div class="sub-title">
-                                            Deadline:
+                                            Thời hạn:
                                         </div>
                                         <div class="text-muted">
                                             17 Apr 2019
                                         </div>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Project Leader :</div>
+                                        <div>Lãnh đạo dự án :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
@@ -384,7 +237,7 @@
                                         </ul>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Team :</div>
+                                        <div>Đội :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
@@ -403,7 +256,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                    <p class="m-b-5">Tiến triển <span class="text-success float-right">40%</span></p>
                                     <div class="progress progress-xs mb-0">
                                         <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
                                     </div>
@@ -421,25 +274,23 @@
                                             <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
-                                    <h4 class="project-title"><a href="project-view.html">Project Management</a></h4>
+                                    <h4 class="project-title"><a href="project-view.html">Mẫu dự án 2</a></h4>
                                     <small class="block text-ellipsis m-b-15">
-                                        <span class="text-xs">2</span> <span class="text-muted">open tasks, </span>
-                                        <span class="text-xs">5</span> <span class="text-muted">tasks completed</span>
+                                        <span class="text-xs">1</span> <span class="text-muted">Nhiệm vụ, </span>
+                                        <span class="text-xs">9</span> <span class="text-muted">đã hoàn thành</span>
                                     </small>
-                                    <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. When an unknown printer took a galley of type and
-                                        scrambled it...
+                                    <p class="text-muted">Dưới đây chỉ là mẫu cho một dự án của nhân viên mà thôi...
                                     </p>
                                     <div class="pro-deadline m-b-15">
                                         <div class="sub-title">
-                                            Deadline:
+                                            Thời hạn:
                                         </div>
                                         <div class="text-muted">
                                             17 Apr 2019
                                         </div>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Project Leader :</div>
+                                        <div>Lãnh đạo dự án :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
@@ -447,7 +298,7 @@
                                         </ul>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Team :</div>
+                                        <div>Đội :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
@@ -466,14 +317,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                    <p class="m-b-5">Tiến triển <span class="text-success float-right">40%</span></p>
                                     <div class="progress progress-xs mb-0">
                                         <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
                             <div class="card">
                                 <div class="card-body">
@@ -484,25 +335,23 @@
                                             <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
-                                    <h4 class="project-title"><a href="project-view.html">Video Calling App</a></h4>
+                                    <h4 class="project-title"><a href="project-view.html">Mẫu dự án 3</a></h4>
                                     <small class="block text-ellipsis m-b-15">
-                                        <span class="text-xs">3</span> <span class="text-muted">open tasks, </span>
-                                        <span class="text-xs">3</span> <span class="text-muted">tasks completed</span>
+                                        <span class="text-xs">1</span> <span class="text-muted">Nhiệm vụ, </span>
+                                        <span class="text-xs">9</span> <span class="text-muted">đã hoàn thành</span>
                                     </small>
-                                    <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. When an unknown printer took a galley of type and
-                                        scrambled it...
+                                    <p class="text-muted">Dưới đây chỉ là mẫu cho một dự án của nhân viên mà thôi...
                                     </p>
                                     <div class="pro-deadline m-b-15">
                                         <div class="sub-title">
-                                            Deadline:
+                                            Thời hạn:
                                         </div>
                                         <div class="text-muted">
                                             17 Apr 2019
                                         </div>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Project Leader :</div>
+                                        <div>Lãnh đạo dự án :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
@@ -510,7 +359,7 @@
                                         </ul>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Team :</div>
+                                        <div>Đội :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
@@ -529,14 +378,14 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                    <p class="m-b-5">Tiến triển <span class="text-success float-right">40%</span></p>
                                     <div class="progress progress-xs mb-0">
                                         <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-lg-4 col-sm-6 col-md-4 col-xl-3">
                             <div class="card">
                                 <div class="card-body">
@@ -547,25 +396,23 @@
                                             <a data-target="#delete_project" data-toggle="modal" href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                         </div>
                                     </div>
-                                    <h4 class="project-title"><a href="project-view.html">Hospital Administration</a></h4>
+                                    <h4 class="project-title"><a href="project-view.html">Mẫu dự án 4</a></h4>
                                     <small class="block text-ellipsis m-b-15">
-                                        <span class="text-xs">12</span> <span class="text-muted">open tasks, </span>
-                                        <span class="text-xs">4</span> <span class="text-muted">tasks completed</span>
+                                        <span class="text-xs">1</span> <span class="text-muted">Nhiệm vụ, </span>
+                                        <span class="text-xs">9</span> <span class="text-muted">đã hoàn thành</span>
                                     </small>
-                                    <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and
-                                        typesetting industry. When an unknown printer took a galley of type and
-                                        scrambled it...
+                                    <p class="text-muted">Dưới đây chỉ là mẫu cho một dự án của nhân viên mà thôi...
                                     </p>
                                     <div class="pro-deadline m-b-15">
                                         <div class="sub-title">
-                                            Deadline:
+                                            Thời hạn:
                                         </div>
                                         <div class="text-muted">
                                             17 Apr 2019
                                         </div>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Project Leader :</div>
+                                        <div>Lãnh đạo dự án :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="Jeffery Lalor"><img alt="" src="assets/img/profiles/avatar-16.jpg"></a>
@@ -573,7 +420,7 @@
                                         </ul>
                                     </div>
                                     <div class="project-members m-b-15">
-                                        <div>Team :</div>
+                                        <div>Đội :</div>
                                         <ul class="team-members">
                                             <li>
                                                 <a href="#" data-toggle="tooltip" title="John Doe"><img alt="" src="assets/img/profiles/avatar-02.jpg"></a>
@@ -592,7 +439,7 @@
                                             </li>
                                         </ul>
                                     </div>
-                                    <p class="m-b-5">Progress <span class="text-success float-right">40%</span></p>
+                                    <p class="m-b-5">Tiến triển <span class="text-success float-right">40%</span></p>
                                     <div class="progress progress-xs mb-0">
                                         <div style="width: 40%" title="" data-toggle="tooltip" role="progressbar" class="progress-bar bg-success" data-original-title="40%"></div>
                                     </div>
@@ -603,217 +450,6 @@
                 </div>
                 <!-- /Projects Tab -->
                 
-                <!-- Bank Statutory Tab -->
-                <div class="tab-pane fade" id="bank_statutory">
-                    <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-title"> Basic Salary Information</h3>
-                            <form>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Salary basis <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select salary basis type</option>
-                                                <option>Hourly</option>
-                                                <option>Daily</option>
-                                                <option>Weekly</option>
-                                                <option>Monthly</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Salary amount <small class="text-muted">per month</small></label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">$</span>
-                                                </div>
-                                                <input type="text" class="form-control" placeholder="Type your salary amount" value="0.00">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Payment type</label>
-                                            <select class="select">
-                                                <option>Select payment type</option>
-                                                <option>Bank transfer</option>
-                                                <option>Check</option>
-                                                <option>Cash</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr>
-                                <h3 class="card-title"> PF Information</h3>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">PF contribution</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">PF No. <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee PF rate</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee PF rate</label>
-                                            <select class="select">
-                                                <option>Select PF contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <hr>
-                                <h3 class="card-title"> ESI Information</h3>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">ESI contribution</label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">ESI No. <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Employee ESI rate</label>
-                                            <select class="select">
-                                                <option>Select ESI contribution</option>
-                                                <option>Yes</option>
-                                                <option>No</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Additional rate <span class="text-danger">*</span></label>
-                                            <select class="select">
-                                                <option>Select additional rate</option>
-                                                <option>0%</option>
-                                                <option>1%</option>
-                                                <option>2%</option>
-                                                <option>3%</option>
-                                                <option>4%</option>
-                                                <option>5%</option>
-                                                <option>6%</option>
-                                                <option>7%</option>
-                                                <option>8%</option>
-                                                <option>9%</option>
-                                                <option>10%</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label class="col-form-label">Total rate</label>
-                                            <input type="text" class="form-control" placeholder="N/A" value="11%">
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="submit-section">
-                                    <button class="btn btn-primary submit-btn" type="submit">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Bank Statutory Tab -->
             </div>
         </div>
         <!-- /Page Content -->
