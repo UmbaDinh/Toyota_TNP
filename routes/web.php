@@ -22,6 +22,7 @@ use App\Http\Controllers\TrainersController;
 use App\Http\Controllers\TrainingTypeController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PersonalInformationController;
+use App\Http\Controllers\ChucNangMoi\DSCaiAppController;
 
 /*
 |--------------------------------------------------------------------------
@@ -316,5 +317,11 @@ Route::controller(SalesController::class)->group(function () {
 // ----------------------------- training type  ------------------------------//
 Route::controller(PersonalInformationController::class)->group(function () {
     Route::post('user/information/save', 'saveRecord')->middleware('auth')->name('user/information/save');
+});
+
+
+// ----------------------------- trainers  ------------------------------//
+Route::controller(DSCaiAppController::class)->group(function () {
+    Route::get('form/chucnangmoi/dscaiapp', 'index')->middleware('auth')->name('form/chucnangmoi/dscaiapp');
 });
 
