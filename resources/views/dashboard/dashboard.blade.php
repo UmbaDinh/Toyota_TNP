@@ -306,7 +306,7 @@
                                 <div class="media align-items-center">
                                     <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
                                     <div class="media-body">
-                                        <div class="text-sm my-0">Martin Lewis</div>
+                                        <div class="text-sm my-0">Nguyễn Văn A</div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center mt-3">
@@ -319,7 +319,7 @@
                                 <div class="media align-items-center">
                                     <a href="profile.html" class="avatar"><img alt="" src="assets/img/user.jpg"></a>
                                     <div class="media-body">
-                                        <div class="text-sm my-0">Martin Lewis</div>
+                                        <div class="text-sm my-0">Nguyễn Văn B</div>
                                     </div>
                                 </div>
                                 <div class="row align-items-center mt-3">
@@ -328,7 +328,7 @@
                                     <div class="col-6 text-right"> <span class="badge bg-inverse-success">Approved</span> </div>
                                 </div>
                             </div>
-                            <div class="load-more text-center"> <a class="text-dark" href="javascript:void(0);">Load More</a> </div>
+                            <div class="load-more text-center"> <a class="text-dark" href="javascript:void(0);">Xem thêm</a> </div>
                         </div>
                     </div>
                 </div>

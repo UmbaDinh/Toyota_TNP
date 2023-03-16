@@ -110,7 +110,7 @@
                     <ul style="{{ request()->is('/*') ? 'display: block;' : 'display: none;' }}">
                         <li><a class="{{set_active(['form/training/list/page'])}}" href="{{ route('form/training/list/page') }}"> KPI chung </a></li>
                         <li><a class="{{set_active(['form/trainers/list/page'])}}" href="{{ route('form/trainers/list/page') }}"> KPi Riêng</a></li>
-                        {{-- <li><a class="{{set_active(['form/training/type/list/page'])}}" href="{{ route('form/training/type/list/page') }}"> Training Type </a></li> --}}
+                        <li><a class="{{set_active(['form/training/type/list/page'])}}" href="{{ route('form/training/type/list/page') }}"> Chấm KPI</a></li>
                     </ul>
                 </li>
                 {{-- <li class="menu-title"> <span>Administration</span> </li>

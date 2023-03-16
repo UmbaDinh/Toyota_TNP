@@ -7,10 +7,10 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3 class="page-title">Profile</h3>
+                        <h3 class="page-title">Hồ sơ</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Profile</li>
+                            <li class="breadcrumb-item"><a href="{{ route('home') }}">Trang chủ</a></li>
+                            <li class="breadcrumb-item active">Hồ sơ</li>
                         </ul>
                     </div>
                 </div>
@@ -38,15 +38,20 @@
                                                 <h6 class="text-muted">{{ Session::get('department') }}</h6>
                                                 <small class="text-muted">{{ Session::get('position') }}</small>
                                                 <div class="staff-id">User ID : {{ Session::get('user_id') }}</div>
-                                                <div class="small doj text-muted">Date of Join : {{ Session::get('join_date') }}</div>
+                                                <div class="small doj text-muted">Ngày làm việc : {{ Session::get('join_date') }}</div>
                                                 <div class="staff-msg"><a class="btn btn-custom" href="chat.html">Send Message</a></div>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
                                             <ul class="personal-info">
                                                 <li>
-                                                    <div class="title">Phone:</div>
-                                                    <div class="text"><a href="">{{ Session::get('phone_number') }}</a></div>
+                                                    @if(Auth::user()->user_id == $information->user_id)
+                                                    <div class="title">Số điện thoại:</div>
+                                                    <div class="text">{{ $information->phone_number }}</div>
+                                                    @else
+                                                    <div class="title">Số điện thoại:</div>
+                                                    <div class="text">N/A</div>
+                                                    @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Email:</div>
@@ -55,32 +60,32 @@
                                                 @if(!empty($information))
                                                     <li>
                                                         @if(Auth::user()->user_id == $information->user_id)
-                                                        <div class="title">Birthday:</div>
+                                                        <div class="title">Ngày sinh:</div>
                                                         <div class="text">{{date('d F, Y',strtotime($information->birth_date)) }}</div>
                                                         @else
-                                                        <div class="title">Birthday:</div>
+                                                        <div class="title">Ngày sinh:</div>
                                                         <div class="text">N/A</div>
                                                         @endif
                                                     </li>
                                                     <li>
                                                         @if(Auth::user()->user_id == $information->user_id)
-                                                        <div class="title">Address:</div>
+                                                        <div class="title">Địa chỉ:</div>
                                                         <div class="text">{{ $information->address }}</div>
                                                         @else
-                                                        <div class="title">Address:</div>
+                                                        <div class="title">Địa chỉ:</div>
                                                         <div class="text">N/A</div>
                                                         @endif
                                                     </li>
                                                     <li>
                                                         @if(Auth::user()->user_id == $information->user_id)
-                                                        <div class="title">Gender:</div>
+                                                        <div class="title">Giới tính:</div>
                                                         <div class="text">{{ $information->gender }}</div>
                                                         @else
-                                                        <div class="title">Gender:</div>
+                                                        <div class="title">Giới tính:</div>
                                                         <div class="text">N/A</div>
                                                         @endif
                                                     </li>
-                                                    <li>
+                                                    {{-- <li>
                                                         <div class="title">Reports to:</div>
                                                         <div class="text">
                                                             <div class="avatar-box">
@@ -92,21 +97,21 @@
                                                                 {{ Auth::user()->name }}
                                                             </a>
                                                         </div>
-                                                    </li>
+                                                    </li> --}}
                                                     @else
                                                     <li>
-                                                        <div class="title">Birthday:</div>
+                                                        <div class="title">Ngày sinh:</div>
                                                         <div class="text">N/A</div>
                                                     </li>
                                                     <li>
-                                                        <div class="title">Address:</div>
+                                                        <div class="title">Địa chỉ:</div>
                                                         <div class="text">N/A</div>
                                                     </li>
                                                     <li>
-                                                        <div class="title">Gender:</div>
+                                                        <div class="title">Giới tính:</div>
                                                         <div class="text">N/A</div>
                                                     </li>
-                                                    <li>
+                                                    {{-- <li>
                                                         <div class="title">Reports to:</div>
                                                         <div class="text">
                                                             <div class="avatar-box">
@@ -118,7 +123,7 @@
                                                                 {{ Auth::user()->name }}
                                                             </a>
                                                         </div>
-                                                    </li>
+                                                    </li> --}}
                                                 @endif    
                                             </ul>
                                         </div>
@@ -135,9 +140,9 @@
                 <div class="row user-tabs">
                     <div class="col-lg-12 col-md-12 col-sm-12 line-tabs">
                         <ul class="nav nav-tabs nav-tabs-bottom">
-                            <li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Profile</a></li>
-                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Projects</a></li>
-                            <li class="nav-item"><a href="#bank_statutory" data-toggle="tab" class="nav-link">Bank & Statutory <small class="text-danger">(Admin Only)</small></a></li>
+                            <li class="nav-item"><a href="#emp_profile" data-toggle="tab" class="nav-link active">Hồ sơ</a></li>
+                            <li class="nav-item"><a href="#emp_projects" data-toggle="tab" class="nav-link">Dự án</a></li>
+                            {{-- <li class="nav-item"><a href="#bank_statutory" data-toggle="tab" class="nav-link">Bank & Statutory <small class="text-danger">(Admin Only)</small></a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -150,74 +155,74 @@
                         <div class="col-md-6 d-flex">
                             <div class="card profile-box flex-fill">
                                 <div class="card-body">
-                                    <h3 class="card-title">Personal Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
+                                    <h3 class="card-title">Thông tin cá nhân <a href="#" class="edit-icon" data-toggle="modal" data-target="#personal_info_modal"><i class="fa fa-pencil"></i></a></h3>
                                     @if (!empty($userInformation))
                                         <ul class="personal-info">
                                             <li>
-                                                <div class="title">Passport No.</div>
+                                                <div class="title">CMND-CCCD</div>
                                                 <div class="text">{{ $userInformation->passport_no }}</div>
                                             </li>
-                                            <li>
+                                            {{-- <li>
                                                 <div class="title">Passport Exp Date.</div>
                                                 <div class="text">{{ $userInformation->passport_expiry_date }}</div>
-                                            </li>
+                                            </li> --}}
                                             <li>
-                                                <div class="title">Tel</div>
+                                                <div class="title">Số điện thoại</div>
                                                 <div class="text"><a href="">{{ $userInformation->tel }}</a></div>
                                             </li>
                                             <li>
-                                                <div class="title">Nationality</div>
+                                                <div class="title">Quốc tịch</div>
                                                 <div class="text">{{ $userInformation->nationality }}</div>
                                             </li>
                                             <li>
-                                                <div class="title">Religion</div>
+                                                <div class="title">Tôn giáo</div>
                                                 <div class="text">{{ $userInformation->religion }}</div>
                                             </li>
                                             <li>
-                                                <div class="title">Marital status</div>
+                                                <div class="title">Tình trạng hôn nhân</div>
                                                 <div class="text">{{ $userInformation->marital_status }}</div>
                                             </li>
                                             <li>
-                                                <div class="title">Employment of spouse</div>
+                                                <div class="title">Việc làm của Vợ/Chồng</div>
                                                 <div class="text">{{ $userInformation->employment_of_spouse }}</div>
                                             </li>
                                             <li>
-                                                <div class="title">No. of children</div>
+                                                <div class="title">Số trẻ</div>
                                                 <div class="text">{{ $userInformation->children }}</div>
                                             </li>
                                         </ul>
                                     @else
                                     <ul class="personal-info">
                                         <li>
-                                            <div class="title">Passport No.</div>
+                                            <div class="title">CMND-CCCD</div>
                                             <div class="text">N/A</div>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <div class="title">Passport Exp Date.</div>
                                             <div class="text">N/A</div>
-                                        </li>
+                                        </li> --}}
                                         <li>
-                                            <div class="title">Tel</div>
+                                            <div class="title">Số điện thoại</div>
                                             <div class="text"><a href="">N/A</a></div>
                                         </li>
                                         <li>
-                                            <div class="title">Nationality</div>
+                                            <div class="title">Quốc tịch</div>
                                             <div class="text">N/A</div>
                                         </li>
                                         <li>
-                                            <div class="title">Religion</div>
+                                            <div class="title">Tôn giáo</div>
                                             <div class="text">N/A</div>
                                         </li>
                                         <li>
-                                            <div class="title">Marital status</div>
+                                            <div class="title">Tình trạng hôn nhân</div>
                                             <div class="text">N/A</div>
                                         </li>
                                         <li>
-                                            <div class="title">Employment of spouse</div>
+                                            <div class="title">Việc làm Vợ/Chồng</div>
                                             <div class="text">N/A</div>
                                         </li>
                                         <li>
-                                            <div class="title">No. of children</div>
+                                            <div class="title">Số trẻ</div>
                                             <div class="text">N/A</div>
                                         </li>
                                     </ul>
@@ -228,7 +233,7 @@
                         <div class="col-md-6 d-flex">
                             <div class="card profile-box flex-fill">
                                 <div class="card-body">
-                                    <h3 class="card-title">Emergency Contact <a href="#" class="edit-icon" data-toggle="modal" data-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
+                                    <h3 class="card-title">Liên lạc khẩn cấp <a href="#" class="edit-icon" data-toggle="modal" data-target="#emergency_contact_modal"><i class="fa fa-pencil"></i></a></h3>
                                     <h5 class="section-title">Primary</h5>
                                     <ul class="personal-info">
                                         <li>
@@ -260,151 +265,6 @@
                                             <div class="text">9876543210, 9876543210</div>
                                         </li>
                                     </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Bank information</h3>
-                                    <ul class="personal-info">
-                                        <li>
-                                            <div class="title">Bank name</div>
-                                            <div class="text">ICICI Bank</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">Bank account No.</div>
-                                            <div class="text">159843014641</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">IFSC Code</div>
-                                            <div class="text">ICI24504</div>
-                                        </li>
-                                        <li>
-                                            <div class="title">PAN No</div>
-                                            <div class="text">TC000Y56</div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Family Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#family_info_modal"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="table-responsive">
-                                        <table class="table table-nowrap">
-                                            <thead>
-                                                <tr>
-                                                    <th>Name</th>
-                                                    <th>Relationship</th>
-                                                    <th>Date of Birth</th>
-                                                    <th>Phone</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Leo</td>
-                                                    <td>Brother</td>
-                                                    <td>Feb 16th, 2019</td>
-                                                    <td>9876543210</td>
-                                                    <td class="text-right">
-                                                        <div class="dropdown dropdown-action">
-                                                            <a aria-expanded="false" data-toggle="dropdown" class="action-icon dropdown-toggle" href="#"><i class="material-icons">more_vert</i></a>
-                                                            <div class="dropdown-menu dropdown-menu-right">
-                                                                <a href="#" class="dropdown-item"><i class="fa fa-pencil m-r-5"></i> Edit</a>
-                                                                <a href="#" class="dropdown-item"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Education Informations <a href="#" class="edit-icon" data-toggle="modal" data-target="#education_info"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Arts and Science (UG)</a>
-                                                        <div>Bsc Computer Science</div>
-                                                        <span class="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">International College of Arts and Science (PG)</a>
-                                                        <div>Msc Computer Science</div>
-                                                        <span class="time">2000 - 2003</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 d-flex">
-                            <div class="card profile-box flex-fill">
-                                <div class="card-body">
-                                    <h3 class="card-title">Experience <a href="#" class="edit-icon" data-toggle="modal" data-target="#experience_info"><i class="fa fa-pencil"></i></a></h3>
-                                    <div class="experience-box">
-                                        <ul class="experience-list">
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Zen Corporation</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Ron-tech</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="experience-user">
-                                                    <div class="before-circle"></div>
-                                                </div>
-                                                <div class="experience-content">
-                                                    <div class="timeline-content">
-                                                        <a href="#/" class="name">Web Designer at Dalt Technology</a>
-                                                        <span class="time">Jan 2013 - Present (5 years 2 months)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
                                 </div>
                             </div>
                         </div>
