@@ -22,6 +22,8 @@ class DashboardController extends Controller
         return view('admin.TrangChu.dashboard', 
         [
             'getThongBao' => (new ThongBao())->get_all_thongbao(),
+            'TTDonVi' => (new DonVi())->get_all_donvi(),
+
         ]);
 
 
