@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\NhanVienController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\DashboardCaNhanController;
 use App\Http\Controllers\Admin\HoSoCaNhanController;
 use App\Http\Controllers\Admin\ChiTietKPIController;
 use App\Http\Controllers\Admin\ChamDiemKPIController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\ChamDiemKPIController;
 
 Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
     Route::get('/trangchu', [DashboardController::class, 'index'])->name('admin.trangchu');
+    Route::get('/trangchucanhan', [DashboardCaNhanController::class, 'index'])->name('admin.trangchucanhan');
     Route::get('/hosocanhan', [HoSoCaNhanController::class, 'index'])->name('admin.hosocanhan');
     Route::get('/nhanvien', [NhanVienController::class, 'index'])->name('admin.nhanvien');
 //Code QL nhan vien

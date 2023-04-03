@@ -8,7 +8,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="{{ route('admin.trangchu') }}">Quản trị</a></li>
-                    <li><a href="#">Cá nhân</a></li>
+                    <li><a href="{{ route('admin.trangchucanhan') }}">Cá nhân</a></li>
                 </ul>
             </li>
 

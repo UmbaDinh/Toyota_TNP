@@ -22,3 +22,4 @@ Auth::routes();
 
 
 require 'admin.php';
+require 'nhanvien.php';

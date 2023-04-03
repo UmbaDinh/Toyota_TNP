@@ -34,5 +34,11 @@ class DiemKPIThang extends Model
             ]);
         }
         return $result;
-    }     
+    }   
+
+//Code XL Xem điểm hiện tại - cá nhân
+    public function get_all_diemhientia(){
+        $sql = "SELECT * FROM diem_kpithang";
+        return DB::select($sql);
+    }
 }
