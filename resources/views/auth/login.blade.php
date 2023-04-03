@@ -1,68 +1,37 @@
-@extends('layouts.app')
+@extends('layouts.welcome')
+
 @section('content')
-    <div class="main-wrapper">
-        <div class="account-content">
-            <a href="{{ route('form/job/list') }}" class="btn btn-primary apply-btn">Công việc</a>
-            <div class="container">
-                <!-- Account Logo -->
-                <div class="account-logo">
-                    <a href="index.html"><img src="{{ URL::to('assets/img/toyota-thap-nhat-phong-vinh-long.jpg') }}" alt="Toyota Thập Nhất Phong Vĩnh Long"></a>
-                </div>
-                {{-- message --}}
-                {!! Toastr::message() !!}
-                <!-- /Account Logo -->
-                <div class="account-box">
-                    <div class="account-wrapper">
-                        <h3 class="account-title">Đăng nhập</h3>
-                        <p class="account-subtitle">Truy cập vào trang chủ</p>
-                        <!-- Account Form -->
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label>Tên đăng nhập</label>
-                                <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Nhập tên đăng nhập">
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col">
-                                        <label>Mật khẩu</label>
-                                    </div>
-                                </div>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Nhập mật khẩu">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            {{-- <div class="form-group">
-                                <div class="row">
-                                    <div class="col">
-                                        <label></label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <a class="text-muted" href="{{ route('forget-password') }}">
-                                            Forgot password?
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> --}}
-                            <div class="form-group text-center">
-                                <button class="btn btn-primary account-btn" type="submit">Đăng nhập</button>
-                            </div>
-                            <div class="account-footer">
-                                <p>Don't have an account yet? <a href="{{ route('register') }}">Register</a></p>
-                            </div>
-                        </form>
-                        <!-- /Account Form -->
-                    </div>
-                </div>
-            </div>
+    <section>
+      <div class="container">
+        <div id="scene">
+          <div class="layer" data-depth-x="-0.5" data-depth-y="0.25"><img src="{{ asset('asset_login/img/moon.png') }}"></div>
+          <div class="layer" data-depth-x="0.15"><img src="{{ asset('asset_login/img/mountains02.png') }}"></div>
+          <div class="layer" data-depth-x="0.25"><img src="{{ asset('asset_login/img/mountains01.png') }}"></div>
+          <div class="layer" data-depth-x="-0.25"><img src="{{ asset('asset_login/img/road.png') }}"></div>
         </div>
-    </div>
+      </div>
+      <form method="POST" action="{{ route('login') }}">
+        @csrf
+        <div class="login">
+          <h2 style="color: #2c3c99">Đăng nhập</h2>
+          <h3 style="color: #2c3c99">Toyota <br>Thập Nhất Phong</h3>
+          <div class="inputBox">
+            <input type="text" placeholder="Tên đăng nhập"  name="email">
+          </div>
+          <div class="inputBox">
+            <input type="password" placeholder="Mật khẩu"  name="password">
+          </div>
+          <div class="inputBox">
+            <button type="submit"  id="btn" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn">
+              {{ __('Login') }}
+            </button>
+          </div>
+        </div>
+      </form>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js" integrity="sha512-/6TZODGjYL7M8qb7P6SflJB/nTGE79ed1RfJk3dfm/Ib6JwCT4+tOfrrseEHhxkIhwG8jCl+io6eaiWLS/UX1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      let scene = document.getElementById('scene');
+      let parallax = new Parallax(scene);
+    </script>
 @endsection

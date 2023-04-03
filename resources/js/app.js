@@ -1,4 +1,1 @@
-
-const app = new Vue({
-    el: '#app',
-});
+require('./bootstrap');
