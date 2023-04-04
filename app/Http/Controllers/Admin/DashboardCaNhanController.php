@@ -8,6 +8,7 @@ use App\Models\ViPham;
 use App\Models\Diem;
 use App\Models\DiemKPIThang;
 use App\Models\NhanVien;
+use App\Models\LogChamDiem;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -25,6 +26,7 @@ class DashboardCaNhanController extends Controller
             'DiemKPIThang' => (new DiemKPIThang())->get_all_diemhientia(),
             'TTDonVi' => (new DonVi())->get_all_donvi(),
             'TTCaNhan' => (new NhanVien())->tt_canhan_nhanvien(Auth::user()->id),
+            'TT_Log_CaNhan' => (new LogChamDiem())->log_canhan(Auth::user()->id),
         ]);
         
     }

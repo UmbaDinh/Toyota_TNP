@@ -31,8 +31,8 @@
                             <div class="row">
                                 <div class="col-xl-7">
                                     <div class="row">
-                                        @isset($TTDonVi)
-                                            @foreach ($TTDonVi as $item)
+                                        @isset($DiemKPIThang)
+                                            @foreach ($DiemKPIThang as $diemkpithang)
                                                 @if ($loop->even)
                                                     <div class="col-xl-6">
                                                         <div class="row">
@@ -43,16 +43,16 @@
                                                                             <svg class="me-2" width="10" height="10"
                                                                                 viewBox="0 0 10 10" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                                <circle cx="5" cy="5" r="5"
-                                                                                    fill="#FC2E53"></circle>
+                                                                                <circle cx="5" cy="5"
+                                                                                    r="5" fill="#FC2E53"></circle>
                                                                             </svg>
-                                                                            Nhân viên tiêu biểu
+                                                                            Nhân viên tiêu biểu {{ $loop->even + 1 }}
                                                                         </span>
                                                                     </div>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">Tên NV </a></p>
+                                                                            class="text-black">{{ $diemkpithang->ten_nhanvien }} </a></p>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">{{ $item->ten_dv }}</a></p>
+                                                                            class="text-black">{{ $diemkpithang->id_donvi }}</a></p>
                                                                     <div class="progress default-progress my-4">
                                                                         <div class="progress-bar bg-danger progress-animated"
                                                                             style="width: 45%; height:10px;" role="progressbar">
@@ -62,12 +62,14 @@
                                                                     <div
                                                                         class="row justify-content-between align-items-center kanban-user">
                                                                         <ul class="users col-6">
-                                                                            <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
-                                                                                Số điểm</span>
+                                                                            <span class="fs-14"><i
+                                                                                    class="far fa-dot-circle me-2"></i>
+                                                                                Số điểm: {{ $diemkpithang->diem_kpi }}</span>
                                                                         </ul>
                                                                         <div class="col-6 d-flex justify-content-end">
-                                                                            <span class="fs-14"><i class="far fa-clock me-2"></i>Tháng
-                                                                                3</span>
+                                                                            <span class="fs-14"><i
+                                                                                    class="far fa-clock me-2"></i>Tháng
+                                                                                    {{ $diemkpithang->thang_kpi }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -84,16 +86,16 @@
                                                                             <svg class="me-2" width="10" height="10"
                                                                                 viewBox="0 0 10 10" fill="none"
                                                                                 xmlns="http://www.w3.org/2000/svg">
-                                                                                <circle cx="5" cy="5" r="5"
-                                                                                    fill="#FC2E53"></circle>
+                                                                                <circle cx="5" cy="5"
+                                                                                    r="5" fill="#FC2E53"></circle>
                                                                             </svg>
-                                                                            Nhân viên tiêu biểu lẻ
+                                                                            Nhân viên tiêu biểu {{ $loop->even + 1 }}
                                                                         </span>
                                                                     </div>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">Tên NV </a></p>
+                                                                            class="text-black">{{ $diemkpithang->ten_nhanvien }}</a></p>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">{{ $item->ten_dv }}</a></p>
+                                                                            class="text-black">{{ $diemkpithang->id_donvi }}</a></p>
                                                                     <div class="progress default-progress my-4">
                                                                         <div class="progress-bar bg-danger progress-animated"
                                                                             style="width: 45%; height:10px;" role="progressbar">
@@ -103,12 +105,14 @@
                                                                     <div
                                                                         class="row justify-content-between align-items-center kanban-user">
                                                                         <ul class="users col-6">
-                                                                            <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
-                                                                                Số điểm</span>
+                                                                            <span class="fs-14"><i
+                                                                                    class="far fa-dot-circle me-2"></i>
+                                                                                Số điểm: {{ $diemkpithang->diem_kpi }}</span>
                                                                         </ul>
                                                                         <div class="col-6 d-flex justify-content-end">
-                                                                            <span class="fs-14"><i class="far fa-clock me-2"></i>Tháng
-                                                                                3</span>
+                                                                            <span class="fs-14"><i
+                                                                                    class="far fa-clock me-2"></i>Tháng
+                                                                                    {{ $diemkpithang->thang_kpi }}</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -119,7 +123,7 @@
                                             @endforeach
                                         @endisset
                                     </div>
-        
+
                                 </div>
                                 <div class="col-xl-5">
                                     <div class="card">
@@ -130,7 +134,8 @@
                                                     trọng</span>
                                             </div>
                                             <div>
-                                                <a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fs-18">Xem
+                                                <a href="javascript:void(0);"
+                                                    class="btn btn-outline-primary btn-rounded fs-18">Xem
                                                     tất cả</a>
                                             </div>
                                         </div>
@@ -174,19 +179,16 @@
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
-        
+
                                                         </tbody>
                                                     </table>
                                                 </div>
-        
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-        
-        
-        
                         </div>
                     </div>
                 </div>

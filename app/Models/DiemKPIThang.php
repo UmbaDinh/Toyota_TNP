@@ -41,4 +41,20 @@ class DiemKPIThang extends Model
         $sql = "SELECT * FROM diem_kpithang";
         return DB::select($sql);
     }
+
+// Code XL Dashboard
+    public function get_all_theothang(){
+        $kpi_thang = 3;
+        $result = DB::table('diem_kpithang')
+            ->select('id_diemkpithang', 'ten_nhanvien', 'id_donvi', 'diem_kpi', 'thang_kpi')
+            ->whereIn('diem_kpi', function ($query) use ($kpi_thang) {
+                $query->selectRaw('MAX(diem_kpi)')
+                    ->from('diem_kpithang')
+                    ->where('thang_kpi', $kpi_thang)
+                    ->groupBy('id_donvi');
+            })
+            ->where('thang_kpi', $kpi_thang)
+            ->get();
+        return $result;
+    }
 }

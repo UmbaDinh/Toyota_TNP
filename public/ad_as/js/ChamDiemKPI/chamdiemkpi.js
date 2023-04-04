@@ -59,6 +59,7 @@ $(document).ready(function() {
         var data_donvi = e.options[e.selectedIndex].value;
         var str_donvi = data_donvi.split("-");
         $(".ten_donvi").val(str_donvi[1]);
+        $("#id_donvi").val(str_donvi[0]);
 
         loadnhanvien_theodonvi(str_donvi[0]);
 
@@ -122,6 +123,7 @@ $(document).ready(function() {
         var currentMonth = currentDate.getMonth() + 1;
         //Xl Load dl lên form
         $("#id_chamdiem").val(data["id_nhanvien"]+'-'+currentMonth);
+        $("#id_nhanvien").val(data["id_nhanvien"]);
         $(".ht_nhanvien").val(data["ho_ten"]);
         
     });    

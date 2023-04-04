@@ -78,6 +78,8 @@
                                                     {{-- <h4 class="text-primary">Thông tin cá nhân</h4> --}}
                                                         <form style="color: black; font-weight: bold" action="/admin/chamdiem-kpi" id="form-chamdiem-kpi">
                                                             <input type="hidden" name="id_chamdiem" id="id_chamdiem">
+                                                            <input type="hidden" name="id_nhanvien" id="id_nhanvien">
+                                                            <input type="hidden" name="id_donvi" id="id_donvi">
                                                             <div class="row" >
                                                                 <div class="mb-3 col-md-6">
                                                                     <label  class="form-label">Họ và tên</label>

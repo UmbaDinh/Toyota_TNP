@@ -7,6 +7,7 @@ use App\Models\ThongBao;
 use App\Models\ViPham;
 use App\Models\Diem;
 use App\Models\NhanVien;
+use App\Models\DiemKPIThang;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
@@ -19,11 +20,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('nhanvien.TrangChu.dashboard', 
-        [
+        return view('admin.TrangChu.dashboard', [
             'getThongBao' => (new ThongBao())->get_all_thongbao(),
             'TTDonVi' => (new DonVi())->get_all_donvi(),
-
+            'DiemKPIThang' => (new DiemKPIThang())->get_all_theothang(),
         ]);
 
 

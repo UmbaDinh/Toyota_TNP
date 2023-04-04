@@ -25,6 +25,7 @@ class DashboardCaNhanController extends Controller
             'DiemKPIThang' => (new DiemKPIThang())->get_all_diemhientia(),
             'TTDonVi' => (new DonVi())->get_all_donvi(),
             'TTCaNhan' => (new NhanVien())->tt_canhan_nhanvien(Auth::user()->id),
+            'TT_Log_CaNhan' => (new LogChamDiem())->log_canhan(Auth::user()->id),
         ]);
         
     }

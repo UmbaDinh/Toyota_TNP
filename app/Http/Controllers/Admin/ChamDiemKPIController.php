@@ -9,6 +9,7 @@ use App\Models\ChiTietKPI;
 use App\Models\ChamDiemKPI;    
 use App\Models\DonVi;    
 use App\Models\DiemKPIThang;    
+use App\Models\LogChamDiem;    
 use App\Http\Controllers\Controller;
 
 class ChamDiemKPIController extends Controller
@@ -71,7 +72,14 @@ class ChamDiemKPIController extends Controller
         $id_diemkpithang = $request->id_chamdiem;
         $diem_kpi = $request->diem_cong_tru;
 
-        $result = DiemKPIThang::postChamDiemThang($id_diemkpithang, $diem_kpi);     
+        $id_nhanvien = $request->id_nhanvien;
+        $chitiet_kpi = $request->chitiet_kpi;
+        $diem = $request->diem_cong_tru;
+        $lydo = $request->lydo;
+        $hinhanh = $request->hinhanh;
+
+        $result = DiemKPIThang::postChamDiemThang($id_diemkpithang, $diem_kpi);   
+        $result = LogChamDiem::postLogChamDiem($id_nhanvien, $chitiet_kpi, $diem, $lydo, $hinhanh);
         if ($result) {
             return response()->json([
                 'message' => 'Thao tác thành công',
