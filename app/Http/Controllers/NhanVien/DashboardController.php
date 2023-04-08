@@ -20,7 +20,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('admin.TrangChu.dashboard', [
+        return view('nhanvien.TrangChu.dashboard', [
             'getThongBao' => (new ThongBao())->get_all_thongbao(),
             'TTDonVi' => (new DonVi())->get_all_donvi(),
             'DiemKPIThang' => (new DiemKPIThang())->get_all_theothang(),

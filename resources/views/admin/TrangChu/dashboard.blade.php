@@ -53,18 +53,19 @@
                                                                             class="text-black">{{ $diemkpithang->ten_nhanvien }}
                                                                         </a></p>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            @foreach ($TTDonVi as $donvi)
-                                                                        @if ($donvi->id_donvi == $diemkpithang->id_donvi)
-                                                                            class="text-black">{{ $donvi->ten_dv }}</a></p>
-                                                                        @endif @endforeach
-                                                                            <div class="progress default-progress my-4">
+                                                                        @foreach ($TTDonVi as $donvi)
+                                                                            @if ($donvi->id_donvi == $diemkpithang->id_donvi)
+                                                                                class="text-black">{{ $donvi->ten_dv }}</a></p>
+                                                                            @endif 
+                                                                        @endforeach
+                                                                        <div class="progress default-progress my-4">
                                                                             <div class="progress-bar bg-danger progress-animated"
                                                                                 style="width: 45%; height:10px;"
                                                                                 role="progressbar">
                                                                                 <span class="sr-only">45% Complete</span>
                                                                             </div>
-                                                                </div>
-                                                                <div
+                                                                        </div>
+                                                                    <div
                                                                     class="row justify-content-between align-items-center kanban-user">
                                                                     <ul class="users col-6">
                                                                         <span class="fs-14"><i
@@ -103,7 +104,7 @@
                                                                 @foreach ($TTDonVi as $donvi)
                                                                     @if ($donvi->id_donvi == $diemkpithang->id_donvi)
                                                                         class="text-black">{{ $donvi->ten_dv }}</a></p>
-                                                                    @endif
+                                                                    @endif 
                                                                 @endforeach
                                                                 <div class="progress default-progress my-4">
                                                                 <div class="progress-bar bg-danger progress-animated"
@@ -121,6 +122,7 @@
                                                                 {{ $diemkpithang->thang_kpi }}</span>
                                                         </div>
                                                     </div>
+                                                    
                                                 </div>
                                             </div>
                                         </div>
@@ -129,70 +131,67 @@
                                     @endforeach
                                 @endisset
                             </div>
-
-                        </div>
-                        <div class="col-xl-5">
-                            <div class="card">
-                                <div class="card-header border-0">
-                                    <div style="margin-top: -30px;">
-                                        <h4 class="fs-20 font-w700">Thông báo</h4>
-                                        <span class="fs-14 font-w400">Dưới đây là danh sách những thông báo quan
-                                            trọng</span>
-                                    </div>
-                                    <div>
-                                        <a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fs-18">Xem
-                                            tất cả</a>
-                                    </div>
-                                </div>
-                                <div class="card-body px-0" style="margin-top: -45px">
-                                    <div class="d-flex justify-content-between recent-emails">
-                                        <div class="table-responsive">
-                                            <table id="example3" class="display data-table">
-                                                <thead>
-                                                    <tr style="padding: 0px 0px">
-                                                        <th></th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($getThongBao as $getthongbao)
-                                                        <tr>
-                                                            <td style="width: 420px;">
-                                                                <div class="d-flex">
-                                                                    <div class="profile-k">
-                                                                        <span class="bg-success">TB
-                                                                            {{ $getthongbao->ID_THONGBAO }}</span>
-                                                                    </div>
-                                                                    <div class="ms-3">
-                                                                        <h4 class="fs-18 font-w500"
-                                                                            style="line-height: 0.5; margin-top: 5px; margin-bottom: 5px !important">
-                                                                            {{ $getthongbao->TIEUDE_THONGBAO }}</h4>
-                                                                        <span
-                                                                            class="font-w400 d-block">{{ $getthongbao->NOIDUNG_THONGBAO }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </td>
-                                                            <td style="width: 20px;">
-                                                                <div class="email-check">
-                                                                    <label class="like-btn mb-0">
-                                                                        <a href="{{ asset('uploads/ThongBao') }}/{{ $getthongbao->upload_file }}"
-                                                                            target="_blank">
-                                                                            <span class="checkmark"></span>
-                                                                        </a>
-                                                                    </label>
-                                                                </div>
-                                                            </td>
-                                                        </tr>
-                                                    @endforeach
-
-                                                </tbody>
-                                            </table>
+                            <div class="col-xl-5">
+                                <div class="card">
+                                    <div class="card-header border-0">
+                                        <div style="margin-top: -30px;">
+                                            <h4 class="fs-20 font-w700">Thông báo</h4>
+                                            <span class="fs-14 font-w400">Dưới đây là danh sách những thông báo quan
+                                                trọng</span>
                                         </div>
-
+                                        <div style="width: 200px">
+                                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fs-18">Thêm thông báo</a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body px-0" style="margin-top: -45px">
+                                        <div class="d-flex justify-content-between recent-emails">
+                                            <div class="table-responsive">
+                                                <table id="example3" class="display data-table">
+                                                    <thead>
+                                                        <tr style="padding: 0px 0px">
+                                                            <th></th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($getThongBao as $getthongbao)
+                                                            <tr>
+                                                                <td style="width: 420px;">
+                                                                    <div class="d-flex">
+                                                                        <div class="profile-k">
+                                                                            <span class="bg-success">TB
+                                                                                {{ $getthongbao->ID_THONGBAO }}</span>
+                                                                        </div>
+                                                                        <div class="ms-3">
+                                                                            <h4 class="fs-18 font-w500"
+                                                                                style="line-height: 0.5; margin-top: 5px; margin-bottom: 5px !important">
+                                                                                {{ $getthongbao->TIEUDE_THONGBAO }}</h4>
+                                                                            <span
+                                                                                class="font-w400 d-block">{{ $getthongbao->NOIDUNG_THONGBAO }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td style="width: 20px;">
+                                                                    <div class="email-check">
+                                                                        <label class="like-btn mb-0">
+                                                                            <a href="{{ asset('uploads/ThongBao') }}/{{ $getthongbao->upload_file }}"
+                                                                                target="_blank">
+                                                                                <span class="checkmark"></span>
+                                                                            </a>
+                                                                        </label>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+        
                     </div>
                 </div>
             </div>
