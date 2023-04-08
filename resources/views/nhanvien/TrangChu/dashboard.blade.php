@@ -52,7 +52,11 @@
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
                                                                             class="text-black">{{ $diemkpithang->ten_nhanvien }} </a></p>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">{{ $diemkpithang->id_donvi }}</a></p>
+                                                                        @foreach($TTDonVi as $donvi)
+                                                                            @if ($donvi->id_donvi == $diemkpithang->id_donvi)
+                                                                                class="text-black">{{ $donvi->ten_dv }}</a></p>
+                                                                            @endif
+                                                                        @endforeach 
                                                                     <div class="progress default-progress my-4">
                                                                         <div class="progress-bar bg-danger progress-animated"
                                                                             style="width: 45%; height:10px;" role="progressbar">
@@ -95,7 +99,11 @@
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
                                                                             class="text-black">{{ $diemkpithang->ten_nhanvien }}</a></p>
                                                                     <p class="font-w600 fs-18"><a href="javascript:void(0);"
-                                                                            class="text-black">{{ $diemkpithang->id_donvi }}</a></p>
+                                                                        @foreach($TTDonVi as $donvi)
+                                                                            @if ($donvi->id_donvi == $diemkpithang->id_donvi)
+                                                                                class="text-black">{{ $donvi->ten_dv }}</a></p>
+                                                                            @endif
+                                                                        @endforeach 
                                                                     <div class="progress default-progress my-4">
                                                                         <div class="progress-bar bg-danger progress-animated"
                                                                             style="width: 45%; height:10px;" role="progressbar">
