@@ -34,4 +34,13 @@ Route::group(['prefix' => '/chamdiem-kpi'], function() {
     // Route::delete('/', [ChiTietKPIController::class, 'deleteCTKPI']);
 });
 
+
+//Code XL Trang chủ
+Route::group(['prefix' => '/trangchu'], function() {
+    Route::post('/thongbao', [DashboardController::class, 'postThongBao']);
+    Route::delete('/thongbao', [DashboardController::class, 'deleteThongBao']);
+    Route::delete('/delete_thongbao', [DashboardController::class, 'deleteThongBao']);
+
+});
+
 });

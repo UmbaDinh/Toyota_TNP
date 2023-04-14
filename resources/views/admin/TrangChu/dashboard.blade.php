@@ -17,6 +17,7 @@
 @endpush
 
 @push('script')
+    <script src="{{ asset('ad_as/js/TrangChu/Trangchu.js') }}"></script>
 @endpush
 
 
@@ -29,7 +30,7 @@
                     <div class="card-body">
                         <div class="col-xl-12">
                             <div class="row">
-                                <div class="col-xl-7">
+                                <div class="col-xl-6">
                                     <div class="row">
                                         @isset($DiemKPIThang)
                                             @foreach ($DiemKPIThang as $diemkpithang)
@@ -131,7 +132,7 @@
                                     @endforeach
                                 @endisset
                             </div>
-                            <div class="col-xl-5">
+                            <div class="col-xl-6">
                                 <div class="card">
                                     <div class="card-header border-0">
                                         <div style="margin-top: -30px;">
@@ -139,8 +140,12 @@
                                             <span class="fs-14 font-w400">Dưới đây là danh sách những thông báo quan
                                                 trọng</span>
                                         </div>
-                                        <div style="width: 200px">
-                                            <a href="javascript:void(0);" class="btn btn-outline-primary btn-rounded fs-18">Thêm thông báo</a>
+                                        <div style="width: 300px; text-align: right">
+                                            <button type="button" class="btn btn-rounded btn-success btn_add_thongbao">
+                                                <span class="btn-icon-start text-success">
+                                                    <i class="fa fa-plus color-success"></i>
+                                                </span>Thêm thông báo
+                                            </button>
                                         </div>
                                     </div>
                                     <div class="card-body px-0" style="margin-top: -45px">
@@ -149,6 +154,7 @@
                                                 <table id="example3" class="display data-table">
                                                     <thead>
                                                         <tr style="padding: 0px 0px">
+                                                            <th></th>
                                                             <th></th>
                                                             <th></th>
                                                         </tr>
@@ -171,13 +177,27 @@
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td style="width: 20px;">
+                                                                <td style="width: 100px;">
                                                                     <div class="email-check">
                                                                         <label class="like-btn mb-0">
-                                                                            <a href="{{ asset('uploads/ThongBao') }}/{{ $getthongbao->upload_file }}"
-                                                                                target="_blank">
-                                                                                <span class="checkmark"></span>
+                                                                            <a href="{{ asset('uploads/ThongBao') }}/{{ $getthongbao->upload_file }}" target="_blank" rel="noopener noreferrer">
+                                                                                <button style="width: 10rem; margin-bottom: 0.5rem"  type="button" class="btn btn-rounded btn-warning">
+                                                                                    <span class="btn-icon-start text-warning">
+                                                                                    <i class="fa fa-download color-warning"></i>
+                                                                                </span>Download</button>
                                                                             </a>
+                                                                            <button style="width: 10rem; margin-bottom: 0.5rem" type="button" class="btn btn-rounded btn-primary btn-update-thongbao"
+                                                                                data-id="{{ $getthongbao->ID_THONGBAO }}"
+                                                                                data-tieude="{{ $getthongbao->TIEUDE_THONGBAO }}"
+                                                                                data-chitiet="{{ $getthongbao->NOIDUNG_THONGBAO }}">
+                                                                                <span class="btn-icon-start text-primary">
+                                                                                    <i class="fa fa-edit color-primary"></i>
+                                                                            </span>Sửa</button>
+                                                                            <button style="width: 10rem; margin-bottom: 0.5rem" type="button" class="btn btn-rounded btn-danger btn-delete-thongbao"
+                                                                                data-id="{{ $getthongbao->ID_THONGBAO }}">
+                                                                                <span class="btn-icon-start text-danger">
+                                                                                    <i class="fa fa-trash color-danger"></i>
+                                                                            </span>Xóa</button>
                                                                         </label>
                                                                     </div>
                                                                 </td>
@@ -200,3 +220,7 @@
     </div>
     </div>
 @endsection
+
+
+{{-- Add modal Trang chủ --}}
+@include('admin.TrangChu.dashboard_modal')
