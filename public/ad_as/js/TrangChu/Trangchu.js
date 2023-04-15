@@ -61,7 +61,6 @@ $(document).ready(function() {
         $("#id_thongbao").val(null);
         $(".tieu_de_thongbao").val(null);
         $(".chi_tiet_thongbao").val(null);
-        $(".uploadfile").val(null);
         $(".modal_add_thongbao").modal("show");
     });
 
@@ -72,47 +71,48 @@ $(document).ready(function() {
         $("#id_thongbao").val($(this).data("id"));
         $(".tieu_de_thongbao").val($(this).data("tieude"));
         $(".chi_tiet_thongbao").val($(this).data("chitiet"));
-
         $(".modal_add_thongbao").modal("show");
     });
 
 
 // Xử lý thêm CT KPI
     $(document).on("click", "#btn_them_thongbao", function () {
-        if (!$(".tieu_de_thongbao").val()) {
-            Toast.fire({
-                icon: "warning",
-                title: "Vui lòng nhập tiêu đề thông báo",
-            });
-            $(".tieu_de_thongbao").val()
-            return;
-        }
-
-        $.ajax({
-            type: "POST",
-            url:"/admin/trangchu/thongbao",
-            data: $("#form-them-thongbao").serialize(),
-            success: function (data) {
-                // table.ajax.reload(null, false);
-                $(".modal_add_thongbao").modal("hide");
-                Toast.fire({
-                    icon: "success",
-                    title: "Thêm thông báo thành công!!!",
-                });
-                setTimeout(function(){
-                    location.reload();
-                }, 1500);
-            },
-            error: function (error) {
-                console.log(error);
-                Toast.fire({
-                    icon: "danger",
-                    title: "Thêm thông báo thất bài",
-                });
-            },
+    if (!$(".tieu_de_thongbao").val()) {
+      Toast.fire({
+        icon: "warning",
+        title: "Vui lòng nhập tiêu đề thông báo",
+      });
+      $(".tieu_de_thongbao").val()
+      return;
+    }
+    var form_data = new FormData($("#form-them-thongbao")[0]);
+    $.ajax({
+      type: "POST",
+      url:"/admin/trangchu/thongbao",
+      data: form_data,
+      contentType: false,
+      processData: false,
+      success: function (data) {
+        // table.ajax.reload(null, false);
+        $(".modal_add_thongbao").modal("hide");
+        Toast.fire({
+          icon: "success",
+          title: "Thêm thông báo thành công!!!",
         });
+        setTimeout(function(){
+          location.reload();
+        }, 1500);
+      },
+      error: function (error) {
+        console.log(error);
+        Toast.fire({
+          icon: "danger",
+          title: "Thêm thông báo thất bài",
+        });
+      },
     });
-
+    });
+  
 
 // Xóa CT KPI
     $(document).on("click", ".btn-delete-thongbao", function () {

@@ -56,8 +56,17 @@ class DashboardController extends Controller
         $ID_THONGBAO = $request->id_thongbao ?? 0;
         $TIEUDE_THONGBAO = $request->tieu_de_thongbao;
         $NOIDUNG_THONGBAO = $request->chi_tiet_thongbao;
-
-        $result = ThongBao::postThongBao($ID_THONGBAO, $TIEUDE_THONGBAO, $NOIDUNG_THONGBAO);     
+        if($request->hasFile('uploadfile'))
+        {
+            $file = $request->file('uploadfile');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time(). '.' .$extension;
+            $file->move('uploads/ThongBao', $filename);
+            $result = ThongBao::postThongBao($ID_THONGBAO, $TIEUDE_THONGBAO, $NOIDUNG_THONGBAO, $filename);     
+        }else{
+            $ten_file = "Khong co";
+            $result = ThongBao::postThongBao($ID_THONGBAO, $TIEUDE_THONGBAO, $NOIDUNG_THONGBAO, $ten_file);     
+        }
         if ($result) {
             return response()->json([
                 'message' => 'Thao tác thành công',
@@ -72,19 +81,30 @@ class DashboardController extends Controller
     }
 
 
-    // Xóa dữ liệu
+// Xóa dữ liệu
     public function deleteThongBao(Request $request)
     {
         $id_thongbao = $request->id_thongbao;
-        $result = ThongBao::deleteThongBao($id_thongbao);
-        if ($result) {
+        $thongbao = ThongBao::find($id_thongbao);
+        if($thongbao)
+        {
+            $path = 'uploads/ThongBao/'.$thongbao->upload_file;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            $thongbao->delete();
             return response()->json([
-                'message' => 'Thao tác thành công'
-            ], 200);
-        } else {
+                'status'=>200,
+                'message'=> "Xóa thông báo thành công"
+            ]);
+        }
+        else
+        {
             return response()->json([
-                'message' => 'Thao tác thất bại'
-            ], 400);
+                'status'=>404,
+                'message'=>'Nhan Vien Not Found'
+            ]);
         }
     }
 

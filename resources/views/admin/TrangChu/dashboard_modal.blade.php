@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form action="/admin/ct-kpi" id="form-them-thongbao">
+                <form action="/admin/ct-kpi" id="form-them-thongbao" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <input type="hidden" id="id_thongbao" name="id_thongbao" />
                     <div class="input-group mb-3 input-success-o">
@@ -26,7 +26,7 @@
                         <div class="input-group mb-3">
                             <button class="btn btn-primary btn-sm" type="button">Chọn File</button>
                             <div class="form-file">
-                                <input type="file" class="form-file-input form-control uploadfile" name="uploadfile">
+                                <input type="file" class="form-file-input form-control" name="uploadfile">
                             </div>
                         </div>
                     </div>

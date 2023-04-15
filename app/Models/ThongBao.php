@@ -24,13 +24,14 @@ class ThongBao extends Model
     }
 
 //Thêm Thoong báo
-    public static function postThongBao($id_thongbao, $tieude_thongbao, $noidung_thongbao)
+    public static function postThongBao($id_thongbao, $tieude_thongbao, $noidung_thongbao, $upload_file)
     {
         $result = DB::table('thongbao')->updateOrInsert([
             'ID_THONGBAO' => $id_thongbao
         ], [
             'TIEUDE_THONGBAO' => $tieude_thongbao,
             'NOIDUNG_THONGBAO' => $noidung_thongbao,
+            'upload_file' => $upload_file,
         ]);
         return $result;
     } 
