@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardCaNhanController;
 use App\Http\Controllers\Admin\HoSoCaNhanController;
 use App\Http\Controllers\Admin\ChiTietKPIController;
 use App\Http\Controllers\Admin\ChamDiemKPIController;
+use App\Http\Controllers\Admin\DonViController;
 
 
 Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
@@ -40,7 +41,10 @@ Route::group(['prefix' => '/trangchu'], function() {
     Route::post('/thongbao', [DashboardController::class, 'postThongBao']);
     Route::delete('/thongbao', [DashboardController::class, 'deleteThongBao']);
     Route::delete('/delete_thongbao', [DashboardController::class, 'deleteThongBao']);
-
 });
 
+//Code QL Đon vị
+Route::group(['prefix' => '/donvi'], function() {
+    Route::get('/', [DonViController::class, 'index'])->name('admin.donvi');
+});
 });

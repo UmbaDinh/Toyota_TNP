@@ -27,7 +27,7 @@
                     <span class="nav-text">QL Công ty</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="#">Đơn vị</a></li>
+                    <li><a href="{{ route('admin.donvi') }}">Đơn vị</a></li>
                     <li><a href="{{ route('admin.nhanvien') }}">Nhân viên</a></li>
                 </ul>
             </li>
