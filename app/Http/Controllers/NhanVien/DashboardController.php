@@ -1,32 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\NhanVien;
+namespace App\Http\Controllers\NhanVien ;
 
-use App\Models\DonVi;
-use App\Models\ThongBao;
-use App\Models\ViPham;
-use App\Models\Diem;
 use App\Models\NhanVien;
-use App\Models\DiemKPIThang;
+use App\Models\DonVi;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Hash;
-use Carbon\Carbon;
 
-
-class DashboardController extends Controller
+class HoSoCaNhanController extends Controller
 {
     public function index()
     {
-        return view('nhanvien.TrangChu.dashboard', [
-            'getThongBao' => (new ThongBao())->get_all_thongbao(),
+        return view('nhanvien.HoSoCaNhan.hosocanhan', 
+        [
+            'TTCaNhan' => (new NhanVien())->tt_canhan_nhanvien(Auth::user()->id),
             'TTDonVi' => (new DonVi())->get_all_donvi(),
-            'DiemKPIThang' => (new DiemKPIThang())->get_all_theothang(),
         ]);
-
-
-        
     }
+
+    
 }

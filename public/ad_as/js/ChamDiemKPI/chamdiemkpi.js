@@ -120,7 +120,9 @@ $(document).ready(function() {
         var data = table.row($tr).data();
         //XL Lấy Tháng hiện tại
         var currentDate = new Date();
-        var currentMonth = currentDate.getMonth() + 1;
+        //var currentMonth = currentDate.getMonth() + 1;
+        //Thang -1
+        var currentMonth = currentDate.getMonth();
         //Xl Load dl lên form
         $("#id_chamdiem").val(data["id_nhanvien"]+'-'+currentMonth);
         $("#id_nhanvien").val(data["id_nhanvien"]);

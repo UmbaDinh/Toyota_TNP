@@ -1,13 +1,9 @@
 @extends('layouts.admin')
 
 
-@push('stylesheets')
-    {{-- <link rel="stylesheet" href="{{ asset('assets/dist/css/custom-datatables.css') }}"> --}}
-@endpush
-
 @push('script')
+    <script src="{{ asset('ad_as/js/HoSoCaNhan/hosocanhan.js') }}"></script>
 @endpush
-
 
 @section('content')
     <!--**********************************
@@ -73,24 +69,24 @@
                                             <div class="pt-3">
                                                 <div class="settings-form">
                                                     {{-- <h4 class="text-primary">Thông tin cá nhân</h4> --}}
-                                                        <form>
-                                                            @foreach ($TTCaNhan as $itemTT_CaNhan)
-                                                            <div class="row">
+                                                        <form id="UpdateNhanVienFORM" method="POST" enctype="multipart/form-data">
+                                                            {{-- @foreach ($TTCaNhan as $itemTT_CaNhan) --}}
+                                                            {{-- <div class="row">
                                                                 <div class="mb-3 col-md-6">
                                                                     <label class="form-label">Họ và tên</label>
-                                                                    <input type="email" placeholder="Họ và tên" value="{{ $itemTT_CaNhan->ho_ten }}"
+                                                                    <input type="text" placeholder="Họ và tên" value="{{ $itemTT_CaNhan->ho_ten }}" name="ho_ten"
                                                                         class="form-control">
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <label class="form-label">Ngày sinh</label>
-                                                                    <input type="date" placeholder="Ngày sinh" value="{{ $itemTT_CaNhan->ngay_sinh }}"
+                                                                    <input type="date" placeholder="Ngày sinh" value="{{ $itemTT_CaNhan->ngay_sinh }}" name="ngay_sinh"
                                                                         class="form-control">
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="mb-3 col-md-6">
                                                                     <label class="form-label">Giới tính</label>
-                                                                    <select class="form-control default-select wide"
+                                                                    <select class="form-control default-select wide" name="gioi_tinh"
                                                                         id="inputState">
                                                                         @if ($itemTT_CaNhan->gioi_tinh == "Nam")
                                                                             <option value="{{ $itemTT_CaNhan->gioi_tinh }}" selected="">{{ $itemTT_CaNhan->gioi_tinh }}</option>
@@ -130,8 +126,8 @@
                                                                         class="form-control">
                                                                 </div>
                                                             </div>
-                                                    @endforeach
-                                                            <button class="btn btn-primary" type="submit">Thay đổi</button>
+                                                            @endforeach
+                                                            <button class="btn btn-primary" id="btn_thaydoi">Thay đổi</button> --}}
                                                         </form>
                                                 </div>
                                             </div>

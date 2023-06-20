@@ -47,4 +47,10 @@ Route::group(['prefix' => '/trangchu'], function() {
 Route::group(['prefix' => '/donvi'], function() {
     Route::get('/', [DonViController::class, 'index'])->name('admin.donvi');
 });
+
+
+//Code xử lý thông tin cá nhân
+Route::get('/hosocanhan2', [HoSoCaNhanController::class, 'get_tt_nhanvien']);
 });
+
+?>

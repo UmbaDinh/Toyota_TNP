@@ -25,14 +25,16 @@
                                     <div class="card tryal-gradient">
                                         <div class="card-body tryal row">
                                             <div class="col-xl-7 col-sm-6">
-                                                <h2>Thống kê điểm tháng 3</h2>
                                                 @isset($DiemKPIThang)
+                                                    <input type="hidden" value="{{$Trungbinh = 0}}">
                                                     @foreach ($DiemKPIThang as $item)
                                                         @if ($item->ten_nhanvien == Auth::user()->name)
-                                                            <h2>Điểm hiện tại: {{ $item->diem_kpi }} </h2>
+                                                            <h2>KPI tháng {{ $item->thang_kpi }}: {{ $item->diem_kpi }} </h2>
+                                                            <input type="hidden" value="{{$Trungbinh = $Trungbinh + $item->diem_kpi }}">
                                                         @endif
                                                     @endforeach
                                                 @endisset
+                                                <h2>Trung bình {{$Trungbinh / 2}}</h2>
                                             </div>
                                             <div class="col-xl-5 col-sm-6">
                                                 <img src="{{ asset('ad_as/images/admin/logo_01.png') }}" alt=""

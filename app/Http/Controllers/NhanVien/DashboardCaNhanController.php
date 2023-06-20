@@ -7,6 +7,7 @@ use App\Models\ThongBao;
 use App\Models\ViPham;
 use App\Models\Diem;
 use App\Models\DiemKPIThang;
+use App\Models\LogChamDiem;
 use App\Models\NhanVien;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
