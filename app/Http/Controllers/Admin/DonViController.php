@@ -41,4 +41,26 @@ class DonViController extends Controller
         }
         return view('admin.DonVi.donvi');
     }
+
+    // Thêm dữ liệu    
+    public function postDonVi(Request $request){
+        $id_ct_kpi = $request->id_ct_kpi ?? 0;
+        $ten_ct_kpi = $request->ten_ct_kpi;
+        $diem_ct_kpi = $request->diem_ct_kpi;
+        $thang_ct_kpi = $request->thang_ct_kpi;
+        $trangthai_ct_kpi = $request->trangthai_ct_kpi;
+
+        $result = ChiTietKPI::postCTKPI($id_ct_kpi, $ten_ct_kpi, $diem_ct_kpi, $thang_ct_kpi, $trangthai_ct_kpi);     
+        if ($result) {
+            return response()->json([
+                'message' => 'Thao tác thành công',
+                'data' => $result
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Thao tác thất bại',
+                'data' => $result
+            ], 400);
+        }
+    }
 }

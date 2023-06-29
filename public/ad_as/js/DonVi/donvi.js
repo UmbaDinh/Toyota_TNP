@@ -62,18 +62,17 @@ $(document).ready(function() {
     });
 
 // Xử lý nút thêm CT KPI
-    $(document).on("click", ".btn_add_ct_kpi", function () {
-        $("#id_ct_kpi").prop('readonly', false);
-        $("#id_ct_kpi").val(null);
-        $(".ten_ct_kpi").val(null);
-        $(".diem_ct_kpi").val(null);
+    $(document).on("click", ".btn_add_donvi", function () {
+        $("#id_donvi").prop('readonly', false);
+        $("#ma_dv").val(null);
+        $(".ten_dv").val(null);
         document.getElementById("customCheckBox8").checked = true;
         // $(".thang_ct_kpi").val(null);
         // $(".trangthai_ct_kpi").val(null);
-        $(".modal_them_ct_kpi").modal("show");
+        $(".modal_them_donvi").modal("show");
     });
 
-// Xử lý cập thật CT KPI
+// Xử lý cập nhật CT KPI
     $(document).on("click", ".btn_capnhat_ct_kpi", function () {
 
         $tr = $(this).closest("tr");
@@ -100,13 +99,21 @@ $(document).ready(function() {
 
 
 // Xử lý thêm CT KPI
-    $(document).on("click", "#btn_them_ct_kpi", function () {
-        if (!$(".ten_ct_kpi").val()) {
+    $(document).on("click", "#btn_them_donvi", function () {
+        if (!$(".ten_dv").val()) {
             Toast.fire({
                 icon: "warning",
-                title: "Vui lòng nhập tên KPI",
+                title: "Vui lòng nhập tên đơn vị",
             });
-            $(".ten_ct_kpi").val()
+            $(".ten_dv").val()
+            return;
+        }
+        if (!$("#ma_dv").val()) {
+            Toast.fire({
+                icon: "warning",
+                title: "Vui lòng nhập mã đơn vị",
+            });
+            $("ma_dv").val()
             return;
         }
         // if($("input[data-bootstrap-switch]").bootstrapSwitch('state')){
@@ -118,11 +125,11 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url:"/admin/ct-kpi",
-            data: $("#form-them-ct-kpi").serialize(),
+            url:"/admin/donvi",
+            data: $("#form-them-donvi").serialize(),
             success: function (data) {
                 table.ajax.reload(null, false);
-                $(".modal_them_ct_kpi").modal("hide");
+                $(".modal_them_donvi").modal("hide");
                 alertify.set('notifier','position', 'top-center');
                 alertify.success('Thao tác thành công');
             },

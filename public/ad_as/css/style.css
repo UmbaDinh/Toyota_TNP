@@ -22033,13 +22033,15 @@ button {
   padding: 0.938rem 1.5rem;
   border-radius: 1.25rem;
   font-weight: 400;
+  margin-right: 10px;
   font-size: 1rem; }
   .btn:hover, .btn:focus, .btn:active, .btn.active {
     outline: 0 !important; }
   @media only screen and (max-width: 87.5rem) {
     .btn {
-      padding: 0.625rem 1rem;
-      font-size: 0.813rem; } }
+      padding: 1rem 1rem;
+      font-size: 0.813rem; 
+      } }
   .btn.btn-success, .btn.btn-secondary, .btn.btn-warning, .btn.btn-primary, .btn.btn-danger, .btn.btn-info {
     color: #fff; }
   .btn-transparent {

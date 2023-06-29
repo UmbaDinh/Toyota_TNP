@@ -13,6 +13,26 @@
             padding: 2px 0;
             margin-bottom: -40px;
         }
+        .fa, .fab, .fad, .fal, .far, .fas {
+            line-height: 1.5 !important;
+        }
+
+        .la, .lab, .lad, .lal, .lar, .las {
+            line-height: 1.5 !important; 
+        }
+        .dataTables_wrapper .dataTables_paginate .paginate_button.previous, .dataTables_wrapper .dataTables_paginate .paginate_button.next {
+            margin-left: 0px;
+            font-size: 18px;
+            margin: -16px 2px;
+            border: 0 !important;
+            height: 41px;
+            width: 50px;
+            padding: 6.5px;
+            border-radius: 5rem;
+            line-height: 24px;
+            display: inline-block;
+            color: var(--primary) !important;
+        }
     </style>
 @endpush
 
@@ -57,13 +77,6 @@
                                                                 Cố vấn dịch vụ
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -110,13 +123,6 @@
                                                                 Chăm sóc KH ( CR) 
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -158,13 +164,6 @@
                                                                 Tổ BD-SCC
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -206,13 +205,6 @@
                                                                 Tổ Đồng
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -254,13 +246,6 @@
                                                                 Tổ sơn
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -302,13 +287,6 @@
                                                                 Tổ Làm đẹp xe
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>
@@ -350,13 +328,6 @@
                                                                 Tổ Thu ngân - KPI
                                                             </a>
                                                         </p>
-                                                    <div class="progress default-progress my-4">
-                                                        <div class="progress-bar bg-danger progress-animated"
-                                                            style="width: 45%; height:10px;"
-                                                                role="progressbar">
-                                                                    <span class="sr-only">100% Complete</span>
-                                                        </div>
-                                                    </div>
                                                     <div class="row justify-content-between align-items-center kanban-user">
                                                         <ul class="users col-6">
                                                             <span class="fs-14"><i class="far fa-dot-circle me-2"></i>

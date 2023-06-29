@@ -18,6 +18,14 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
+                            <h4 class="card-title">Danh sách KPI</h4>
+                            <button type="button" class="btn btn-rounded btn-success btn_add_donvi">
+                                <span class="btn-icon-start text-success">
+                                    <i class="fa fa-plus color-success"></i>
+                                </span>Thêm đơn vị mới
+                            </button>
+                        </div>
+                        <div class="card-header">
                             <h4 class="card-title">Danh sách đơn vị</h4>
                         </div>
                         <div class="card-body">
@@ -50,5 +58,5 @@
 @endsection
 
 {{-- Add modal Chi tiết KPI --}}
-@include('admin.ChiTietKPI.chitietkpi_modal')
+@include('admin.DonVi.donvi_modal')
 

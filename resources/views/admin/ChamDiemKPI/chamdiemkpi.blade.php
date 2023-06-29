@@ -8,6 +8,33 @@
             color: black; 
             font-weight: bold
         }
+        .btn {
+            padding: 0.938rem 1.5rem;
+            border-radius: 1.25rem;
+            font-weight: 400;
+            margin-right: -10px !important;
+            font-size: 1rem;
+        }
+        
+        .fa, .fab, .fad, .fal, .far, .fas {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1.5 !important;
+        }
+
+        .la, .lab, .lad, .lal, .lar, .las {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1.5 !important; 
+        }
     </style>
 @endpush
 

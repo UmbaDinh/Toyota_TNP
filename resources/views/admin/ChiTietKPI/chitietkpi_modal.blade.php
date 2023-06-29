@@ -49,6 +49,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Thoát</button>
+                &nbsp;&nbsp;&nbsp;&nbsp; 
                 <button type="button" class="btn btn-primary" id="btn_them_ct_kpi">Thêm</button>
             </div>
         </div>

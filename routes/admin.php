@@ -46,6 +46,7 @@ Route::group(['prefix' => '/trangchu'], function() {
 //Code QL Đon vị
 Route::group(['prefix' => '/donvi'], function() {
     Route::get('/', [DonViController::class, 'index'])->name('admin.donvi');
+    Route::post('/', [DonViController::class, 'postDonVi']);
 });
 
 

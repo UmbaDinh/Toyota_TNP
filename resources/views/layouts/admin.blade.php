@@ -8,7 +8,7 @@
     <!-- PAGE TITLE HERE -->
     <title>Toyota TNP</title>
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png/x-icon" href="{{ asset('ad_as/images/admin/favicon.png') }}">
+    <link rel="shortcut icon" type="image/png/x-icon" href="{{ asset('ad_as/images/admin/logo_01.png') }}">
     <link href="{{ asset('ad_as/vendor/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet">
     <link href="{{ asset('ad_as/vendor/owl-carousel/owl.carousel.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('ad_as/vendor/nouislider/nouislider.min.css') }}">
