@@ -73,7 +73,7 @@ $(document).ready(function() {
     });
 
 // Xử lý cập nhật CT KPI
-    $(document).on("click", ".btn_capnhat_ct_kpi", function () {
+    $(document).on("click", ".btn_capnhat_donvi", function () {
 
         $tr = $(this).closest("tr");
         if ($($tr).hasClass("child")) {
@@ -81,20 +81,18 @@ $(document).ready(function() {
         }
         var data = table.row($tr).data();
 
-        $("#id_ct_kpi").prop('readonly', true);
-        $("#id_ct_kpi").val(data["id_ct_kpi"]);
-        $(".ten_ct_kpi").val(data["ten_ct_kpi"]);
-        $(".diem_ct_kpi").val(data["diem_ct_kpi"]);
-        $('.nice-select.default-select.thang_ct_kpi').find('li[data-value="'+data['thang_ct_kpi']+'"]').click();
+        $("#id_donvi").prop('readonly', true);
+        $("#id_donvi").val(data["id_donvi"]);
+        $(".ten_dv").val(data["ten_dv"]);
+        $(".ma_dv").val(data["ma_dv"]);
         var bien_check = '<span class="badge light badge-danger">Ngừng hoạt động</span>';
         var check = 1;
-        if(data["trangthai_ct_kpi"] == bien_check){
+        if(data["hoat_dong"] == bien_check){
             document.getElementById("customCheckBox8").checked = false;
         }else{
             document.getElementById("customCheckBox8").checked = true;
         }
-
-        $(".modal_them_ct_kpi").modal("show");
+        $(".modal_them_donvi").modal("show");
     });
 
 
@@ -108,20 +106,14 @@ $(document).ready(function() {
             $(".ten_dv").val()
             return;
         }
-        if (!$("#ma_dv").val()) {
+        if (!$(".ma_dv").val()) {
             Toast.fire({
                 icon: "warning",
                 title: "Vui lòng nhập mã đơn vị",
             });
-            $("ma_dv").val()
+            $(".ma_dv").val()
             return;
         }
-        // if($("input[data-bootstrap-switch]").bootstrapSwitch('state')){
-        //     $("#NGANHHANG_TRANGTHAI").val(1);
-        // }
-        // else{
-        //     $("#NGANHHANG_TRANGTHAI").val(0);
-        // }
 
         $.ajax({
             type: "POST",
@@ -141,40 +133,39 @@ $(document).ready(function() {
         });
     });
 
-
 // Xóa CT KPI
-    $(document).on("click", ".btn_xoa_ct_kpi", function () {
-        swalWithBootstrapButtons
-            .fire({
-                title: "Xóa lựa chọn này?",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonText: "Xóa",
-                cancelButtonText: "Thoát",
-                reverseButtons: true,
-            })
-            .then((result) => {
-                if (result.value) {
-                    $id_ct_kpi = $(this).data("id");
-                    $token = $('meta[name="csrf-token"]').attr("content");
+$(document).on("click", ".btn_xoa_donvi", function () {
+    swalWithBootstrapButtons
+        .fire({
+            title: "Xóa lựa chọn này?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Xóa",
+            cancelButtonText: "Thoát",
+            reverseButtons: true,
+        })
+        .then((result) => {
+            if (result.value) {
+                $id_donvi = $(this).data("id");
+                $token = $('meta[name="csrf-token"]').attr("content");
 
-                    $.ajax({
-                        type: "DELETE",
-                        url:"/admin/ct-kpi",
-                        data: { id_ct_kpi: $id_ct_kpi },
-                        headers: {
-                            "X-CSRF-TOKEN": $token,
-                        },
-                        success: function (data) {
-                            table.ajax.reload(null, false);
-                            alertify.set('notifier','position', 'top-center');
-                            alertify.success('Thao tác thành công');
-                        },
-                        error: function (error) {
-                            console.log(error);
-                        },
-                    });
-                }
-            });
-    });    
+                $.ajax({
+                    type: "DELETE",
+                    url:"/admin/donvi",
+                    data: { id_donvi: $id_donvi },
+                    headers: {
+                        "X-CSRF-TOKEN": $token,
+                    },
+                    success: function (data) {
+                        table.ajax.reload(null, false);
+                        alertify.set('notifier','position', 'top-center');
+                        alertify.success('Thao tác thành công');
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                });
+            }
+        });
+});   
 });

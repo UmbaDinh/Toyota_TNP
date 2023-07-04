@@ -47,6 +47,7 @@ Route::group(['prefix' => '/trangchu'], function() {
 Route::group(['prefix' => '/donvi'], function() {
     Route::get('/', [DonViController::class, 'index'])->name('admin.donvi');
     Route::post('/', [DonViController::class, 'postDonVi']);
+    Route::delete('/', [DonViController::class, 'deleteDonVi']);
 });
 
 

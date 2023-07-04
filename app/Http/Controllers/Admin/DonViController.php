@@ -21,13 +21,13 @@ class DonViController extends Controller
                 })
                 ->addColumn('actions', function ($row) {
                     $action = '
-                            <button type="button" class="btn btn-rounded btn-info btn_capnhat_ct_kpi" data-id="'.$row->id_donvi.'">
+                            <button type="button" class="btn btn-rounded btn-info btn_capnhat_donvi" data-id="'.$row->id_donvi.'">
                             <span class="btn-icon-start text-info">
                                 <i class="fas fa-pencil-alt"></i>
                             </span>Sửa
                             </button>
                             &nbsp;
-                            <button type="button" class="btn btn-rounded btn-danger btn_xoa_ct_kpi"
+                            <button type="button" class="btn btn-rounded btn-danger btn_xoa_donvi"
                                 data-id="'.$row->id_donvi.'">
                                 <span class="btn-icon-start text-danger">
                                     <i class="fa fa-trash"></i>
@@ -42,15 +42,19 @@ class DonViController extends Controller
         return view('admin.DonVi.donvi');
     }
 
-    // Thêm dữ liệu    
+// Thêm dữ liệu    
     public function postDonVi(Request $request){
-        $id_ct_kpi = $request->id_ct_kpi ?? 0;
-        $ten_ct_kpi = $request->ten_ct_kpi;
-        $diem_ct_kpi = $request->diem_ct_kpi;
-        $thang_ct_kpi = $request->thang_ct_kpi;
-        $trangthai_ct_kpi = $request->trangthai_ct_kpi;
-
-        $result = ChiTietKPI::postCTKPI($id_ct_kpi, $ten_ct_kpi, $diem_ct_kpi, $thang_ct_kpi, $trangthai_ct_kpi);     
+        $id_donvi = $request->id_donvi ?? 0;
+        $ten_dv = $request->ten_dv;
+        $ma_dv = $request->ma_dv;
+        $hoat_dong = $request->hoat_dong;
+        $hd = 1;
+        if($hoat_dong == "on"){
+            $hd = 1;
+        }else{
+            $hd = 0;
+        }
+        $result = DonVi::postDonVi($id_donvi, $ten_dv, $ma_dv, $hd);     
         if ($result) {
             return response()->json([
                 'message' => 'Thao tác thành công',
@@ -60,6 +64,22 @@ class DonViController extends Controller
             return response()->json([
                 'message' => 'Thao tác thất bại',
                 'data' => $result
+            ], 400);
+        }
+    }
+
+// Xóa dữ liệu
+    public function deleteDonVi(Request $request)
+    {
+        $id_donvi = $request->id_donvi;
+        $result = DonVi::deleteDonVi($id_donvi);
+        if ($result) {
+            return response()->json([
+                'message' => 'Thao tác thành công'
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Thao tác thất bại'
             ], 400);
         }
     }

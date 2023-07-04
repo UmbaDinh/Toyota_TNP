@@ -22,6 +22,26 @@ class DonVi extends Model
         return DB::select($sql);
     }
 
-//code HsCaNhan
+//Them don vi
+    public static function postDonVi($id_donvi, $ten_dv, $ma_dv, $hoat_dong)   
+    {
+        $result = DB::table('don_vi')->updateOrInsert([
+            'id_donvi' => $id_donvi
+        ], [
+            'ten_dv' => $ten_dv,
+            'ma_dv' => $ma_dv,
+            'hoat_dong' => $hoat_dong
+        ]);
+        return $result;
+    } 
 
+// Xóa CT KPI
+    public static function deleteDonVi($id_donvi)
+    {
+        $result = DB::table('don_vi')->where([
+            'id_donvi' => $id_donvi
+        ])->delete();
+        return $result;
+    }    
+    
 }
