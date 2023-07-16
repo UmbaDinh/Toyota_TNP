@@ -13,9 +13,14 @@ Route::prefix('admin')->middleware('auth', 'isAdmin')->group(function(){
     Route::get('/trangchu', [DashboardController::class, 'index'])->name('admin.trangchu');
     Route::get('/trangchucanhan', [DashboardCaNhanController::class, 'index'])->name('admin.trangchucanhan');
     Route::get('/hosocanhan', [HoSoCaNhanController::class, 'index'])->name('admin.hosocanhan');
-    Route::get('/nhanvien', [NhanVienController::class, 'index'])->name('admin.nhanvien');
+;
+
 //Code QL nhan vien
-    Route::get('/fetch-nhanvien', [NhanVienController::class, 'fetchnhanvien']);
+Route::group(['prefix' => '/nhanvien'], function() {
+    Route::get('/', [NhanVienController::class, 'index'])->name('admin.nhanvien');
+    Route::post('/', [NhanVienController::class, 'postNhanVien']);
+    Route::delete('/', [NhanVienController::class, 'deleteNhanVien']);
+});
 
 
 //Code QL KPI

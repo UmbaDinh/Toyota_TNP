@@ -1,5 +1,5 @@
 
-<div class="modal_them_ct_kpi modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal_them_nhanvien modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,9 +7,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form action="/admin/ct-kpi" id="form-them-ct-kpi">
+                <form action="/admin/nhanvien" id="form-them-ct-kpi">
                     {{ csrf_field() }}
-                    <input type="hidden" id="id_ct_kpi" name="id_ct_kpi" />
+                    <input type="hidden" id="id_nhanvien" name="id_nhanvien" />
                     <div class="input-group mb-3 input-success-o">
                         <span class="input-group-text" style="color: black; font-weight: 600">Tên chi tiết KPI</span>
                         <input type="text" class="form-control ten_ct_kpi" placeholder="Nhập tên chi tiết KPI" name="ten_ct_kpi">
